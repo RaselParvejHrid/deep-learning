@@ -1,6 +1,6 @@
 # Module 001
 
-## My Solution to [Practice Problems](module001%20%Practice%20Problems.pdf)
+## My Solution to [Practice Problems](module001%20Practice%20Problems.pdf)
 
 ### Bias
 
