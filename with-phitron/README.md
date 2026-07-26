@@ -1,0 +1,1 @@
+This folder will contain my solution to `Practice Problems` and Practice/Exam `Coding Projects`, assigned to me by [Phitron](https://phitron.io/ai-ml-course).

@@ -1,9 +1,9 @@
-# Module 001 | Introduction to Deep Learning and Perceptrons
+# Module 01 | Introduction to Deep Learning and Perceptrons
 
 ## My Solution to [Practice Problems](module001%20Practice%20Problems.pdf)
 
 ### Table of Contents
-- [Module 001 | Introduction to Deep Learning and Perceptrons](#module-001--introduction-to-deep-learning-and-perceptrons)
+- [Module 01 | Introduction to Deep Learning and Perceptrons](#module-01--introduction-to-deep-learning-and-perceptrons)
   - [My Solution to Practice Problems](#my-solution-to-practice-problems)
     - [Table of Contents](#table-of-contents)
     - [Bias](#bias)
@@ -117,7 +117,7 @@ The `Weighted Sum` is the input to a step function, as to any other activation f
 #### Why do we need an activation function in a perceptron?
 To decide if the input values are, collectively, `important enough` for the perceptron to fire.
 
-The `importance` are represented by the `Weighted Sum`, which is the input to the activation function. And the activation function decides, based on `Threshold` inside the function, if the importance is `enough`.
+The `importance` is represented by the `Weighted Sum`, which is the input to the activation function. And the activation function decides, based on `Threshold` inside the function, if the importance is `enough`.
 
 #### Name three common activation functions.
 1. Sigmoid
