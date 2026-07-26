@@ -72,12 +72,9 @@ $$
 \begin{aligned}
    X &= \begin{bmatrix} x_1 & x_2 \end{bmatrix} \\
      &= \begin{bmatrix} 2 & 3 \end{bmatrix} \\
-   \\
    W &= \begin{bmatrix} w_1 & w_2 \end{bmatrix} \\
      &= \begin{bmatrix} 0.5 & 1 \end{bmatrix} \\
-   \\
    b &= 1 \\
-   \\
    W \cdot X + b &= \begin{bmatrix} 0.5 & 1 \end{bmatrix} \cdot \begin{bmatrix} 2 & 3 \end{bmatrix} + 1 \\
    &= 1 + 3 + 1 \\
    &= 5
