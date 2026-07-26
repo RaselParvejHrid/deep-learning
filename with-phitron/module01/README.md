@@ -22,6 +22,8 @@
 
 ---
 
+<!-- pagebreak -->
+
 ### Bias
 
 #### What is a bias in a perceptron?
@@ -45,6 +47,8 @@ This ${\mathbf{\color{Blue} 0}}$ is the `(Decision) Threshold` of the `Activatio
 
 During training, `SKLearn#Perceptron` finds optimal `b` so that adding it to the weighted sum adjusts the sum to the threshold ${\mathbf{\color{Blue} 0}}$, for the sake of correct activation decision.
 
+<!-- pagebreak -->
+
 ### Weights
 
 #### What are weights in a perceptron?
@@ -62,6 +66,8 @@ $$
 \text{Strongly Inverse,} & \text{if } w_i \text{ largely negative}
 \end{cases}
 $$
+
+<!-- pagebreak -->
 
 ### Perceptron Output
 
@@ -86,6 +92,7 @@ We have,
 
 So, the weighted sum is $5$.
 
+<!-- pagebreak -->
 
 ### Step function
 
@@ -102,6 +109,8 @@ $$
 For `SKLearn#Perceptron`, this $\mathbf{\color{Blue} \text{Threshold}} = 0$.
 
 The `Weighted Sum` is the input to a step function, as to any other activation function. As obvious from the definition above, if the `Weigted Sum` is greater than or equal to the `Thresold` value, the perceptron (or the artificial neuron) fires, or gets activated, that is the output of the activation function is `1`. Otherwise, it is `0`— the neuron does not fire— it remains inactive.
+
+<!-- pagebreak -->
 
 ### Activation Function
 
