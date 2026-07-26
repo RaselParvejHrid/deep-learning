@@ -68,7 +68,7 @@ $$
 #### A perceptron has inputs $x_1 = 2$, $x_2 = 3$, weights $w_1 = 0.5$, $w_2 = 1$, and bias $b = 1$. Calculate the weighted sum (before activation).
 
 We have,
-$$
+```math
 \begin{aligned}
    X &= \begin{bmatrix} x_1 & x_2 \end{bmatrix} \\
      &= \begin{bmatrix} 2 & 3 \end{bmatrix} \\
@@ -79,7 +79,7 @@ $$
    &= 1 + 3 + 1 \\
    &= 5
 \end{aligned}
-$$
+```
 
 So, the weighted sum is $5$.
 
