@@ -347,7 +347,7 @@ Perceptron is no more than linear in nature.
 
 ### List two limitations of a perceptron.
 1. Perceptron fails to solve Binary Classification on Linearly Non-separable Dataset.
-1. The standard Perceptron uses the hard step function, thus lacking probabilistic output.
+1. The standard Perceptron uses the hard step function, thus adandoning probabilistic output.
 
 ### When should we avoid using a single-layer perceptron?
 1. If the task is Regression.
