@@ -2,23 +2,29 @@
 
 ## My Solution to [Practice Problems](module01%20Practice%20Problems.pdf)
 
-### Table of Contents
-- [Module 01 | Introduction to Deep Learning and Perceptrons](#module-01--introduction-to-deep-learning-and-perceptrons)
-  - [My Solution to Practice Problems](#my-solution-to-practice-problems)
-    - [Table of Contents](#table-of-contents)
-    - [Bias](#bias)
-      - [What is a bias in a perceptron?](#what-is-a-bias-in-a-perceptron)
-      - [Why do we add bias to a perceptron?](#why-do-we-add-bias-to-a-perceptron)
-    - [Weights](#weights)
-      - [What are weights in a perceptron?](#what-are-weights-in-a-perceptron)
-      - [How do weights affect the output of a perceptron?](#how-do-weights-affect-the-output-of-a-perceptron)
-    - [Perceptron Output](#perceptron-output)
-      - [A perceptron has inputs $`x_1 = 2`$, $`x_2 = 3`$, weights $`w_1 = 0.5`$, $`w_2 = 1`$, and bias $`b = 1`$. Calculate the weighted sum (before activation).](#a-perceptron-has-inputs-x_1--2-x_2--3-weights-w_1--05-w_2--1-and-bias-b--1-calculate-the-weighted-sum-before-activation)
-    - [Step function](#step-function)
-      - [What is the step function and how does it work?](#what-is-the-step-function-and-how-does-it-work)
-    - [Activation Function](#activation-function)
-      - [Why do we need an activation function in a perceptron?](#why-do-we-need-an-activation-function-in-a-perceptron)
-      - [Name three common activation functions.](#name-three-common-activation-functions)
+### Table of Contents {ignore=true}
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=3 depthTo=4 orderedList=True} -->
+
+<!-- code_chunk_output -->
+
+1. [Bias](#bias)
+    1. [What is a bias in a perceptron?](#what-is-a-bias-in-a-perceptron)
+    2. [Why do we add bias to a perceptron?](#why-do-we-add-bias-to-a-perceptron)
+2. [Weights](#weights)
+    1. [What are weights in a perceptron?](#what-are-weights-in-a-perceptron)
+    2. [How do weights affect the output of a perceptron?](#how-do-weights-affect-the-output-of-a-perceptron)
+3. [Perceptron Output](#perceptron-output)
+    1. [A perceptron has inputs $x_1 = 2$, $x_2 = 3$, weights $w_1 = 0.5$, $w_2 = 1$, and bias $b = 1$. Calculate the weighted sum (before activation).](#a-perceptron-has-inputs-x_1--2-x_2--3-weights-w_1--05-w_2--1-and-bias-b--1-calculate-the-weighted-sum-before-activation)
+4. [Step function](#step-function)
+    1. [What is the step function and how does it work?](#what-is-the-step-function-and-how-does-it-work)
+5. [Activation Function](#activation-function)
+    1. [Why do we need an activation function in a perceptron?](#why-do-we-need-an-activation-function-in-a-perceptron)
+    2. [Name three common activation functions.](#name-three-common-activation-functions)
+
+<!-- /code_chunk_output -->
+
+
 
 ---
 
@@ -32,20 +38,26 @@ The `Bias` $(b)$ is a parameter of a Perceptron, additional to `Input Weights` $
 
 #### Why do we add bias to a perceptron?
 
-We add `Bias` $(b)$ to the `Weighted Sum` ($W \cdot X$) to adjust the weighted sum to the threshold of the `Activation Function` of the perceptron.
+Let's recall a key step in how a trained perception predicts. It starts with `combining the inputs linearly`. The better the `Linear Combination`, the better the prediction. Well, then what decides a linear combination good or bad, and how is a perceptron supposed to have it or acquire it?
 
-For `SKLearn#Perceptron`, the `Activation Function` is the `Step Function` as defined below.
+A perception learns the optimal linear combination parameters (Weights and Bias) from training.
 
-$$
-y_{step}(\text{Weighted Sum}) = \begin{cases}
-1, & \text{Weighted Sum}\geq {\mathbf{\color{Blue} 0}} \\
-0, & \text{Weighted Sum} <  {\mathbf{\color{Blue} 0}} \\
-\end{cases}
-$$
+What ensures optimality? The perceptron learns the parameters, during training, with supervision of truth values and by optimizing a loss function, called 'Perceptron Loss', that is tied to its activation function, namely, the step function.
 
-This ${\mathbf{\color{Blue} 0}}$ is the `(Decision) Threshold` of the `Activation Function`, for `SKLearn#Perceptron`.
+This Linear Combination Parameters (Weights and Bias) represent a 'Decision Boundary' on the feature space. This decision boundary is a line on 2D, a plane on 3D (generally, a hyperplane on any dimensional feature space).
 
-During training, `SKLearn#Perceptron` finds optimal `b` so that adding it to the weighted sum adjusts the sum to the threshold ${\mathbf{\color{Blue} 0}}$, for the sake of correct activation decision.
+From coordinate geometry, not from ML, not from DL, from Coordinate Geometry, this dicision boundary has a equation of locus, with Feature values as coordinate variables, and Weights and Bias as equation parameter.
+
+From Coordinate Geometry, the `general equation of n-dimensional hyperplane` is this:
+```math
+w_1 x_1 + w_2 x_2 + \cdots \cdots \cdots + w_n x_n + b = 0
+```
+
+If the decision boundary passes through the coordinate origin, this $\text{Bias} = b = 0$, and we can omit the term, in other wors, no bias added.
+
+If the decision boundary does not pass through the coordinate origin, the bias is not zero. It must be there as put by Coordinate Geometry, again not by ML, not by DL.
+
+We add the `Bias` term while predicting with a perceptron, neither because we want it for mere engineering convenience, nor it is an engineering trick, nor it's a ML/DL technique. It is already in the perception, or not, decided during training depending the distribution of the feature space, to be added (if there) with $\sum w_i x_i$ during prediction.
 
 <!-- pagebreak -->
 
@@ -71,7 +83,7 @@ $$
 
 ### Perceptron Output
 
-#### A perceptron has inputs $`x_1 = 2`$, $`x_2 = 3`$, weights $`w_1 = 0.5`$, $`w_2 = 1`$, and bias $`b = 1`$. Calculate the weighted sum (before activation).
+#### A perceptron has inputs $x_1 = 2$, $x_2 = 3$, weights $w_1 = 0.5$, $w_2 = 1$, and bias $b = 1$. Calculate the weighted sum (before activation).
 
 We have,
 ```math

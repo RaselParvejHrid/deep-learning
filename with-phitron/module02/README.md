@@ -31,6 +31,11 @@
 21. [Does XOR need more features or more layers? Why?](#does-xor-need-more-features-or-more-layers-why)
 22. [What does linearly separable mean?](#what-does-linearly-separable-mean)
 23. [Why can’t a single straight line separate XOR data?](#why-cant-a-single-straight-line-separate-xor-data)
+24. [What change is required to solve XOR successfully?](#what-change-is-required-to-solve-xor-successfully)
+25. [List two strengths of a perceptron.](#list-two-strengths-of-a-perceptron)
+26. [List two limitations of a perceptron.](#list-two-limitations-of-a-perceptron)
+27. [When should we avoid using a single-layer perceptron?](#when-should-we-avoid-using-a-single-layer-perceptron)
+28. [Given $x_1 = 1$, $x_2 = 1$, Weights $= [1, 1]$ and Bias $= -1.5$, will the perceptron output be $1$ or $0$? (Show reasoning in one line)](#given-x_1--1-x_2--1-weights--1-1-and-bias---15-will-the-perceptron-output-be-1-or-0-show-reasoning-in-one-line)
 
 <!-- /code_chunk_output -->
 
@@ -239,7 +244,8 @@ Note this behavior of `np.dot()`:
 
 So, `np.dot()` will though an error when $n \ne m$, as last axis length must be equal.
 
-What about when $n = m$? `np.dot()` will calculate and return a dot product, but even then it is not what we want. Because, $np.dot(X, y-\hat{y})$ is combining feature values with prediction error by multiplying, and also adding after multiplying, which sounds innocent, but it is doing two wrong things.
+What about when $n = m$? `np.dot()` will calculate and return a dot product, but even then it is not what we want.
+Because, $np.dot(X, y-\hat{y})$ is combining feature values with prediction error by multiplying, and also adding after multiplying, which sounds innocent, but it is doing two wrong things.
 1. While multiplying, it is combining features also with prediction error from **different** observations.
 1. While adding after multiplying, combining different features, to calculate necessary change in weight required for a single feature.
 
@@ -281,4 +287,74 @@ A dataset with Binary Classes is called linearly separable, when a single hyperp
 
 ### Why can’t a single straight line separate XOR data?
 
-A neccessary condition for Linear Separa
+Some might answer this question this way: "A single straight line cannot separate the XOR dataset, because the dataset is not linearly separable".
+
+This kind of answers is fallacious. The fallacy of presenting a Definiendum as the cause of the Definiens, is called `Causal Reversal`, which a variation of `False Cause Falacy`.
+
+The dataset is called not Linearly Separable, because a single line cannot separate it. Never the reverse that "a single line cannot separate it, because it is not Linearly Separable".
+
+As a teacher in Bangladesh at SSC and HSC Levels, I meet this fallacy too many times and I am bored of this fallacy.
+
+So, in search of a different interpretation of this question, I found one that interested me deeply.
+
+#### Is there any deeper pattern that decides Linear Separability?
+
+After pondering about an hour on this interpretation of the question, I found a deeper pattern. Let me present it with a draft outline of proof.
+
+Let me assume the classes of a Binary Classification Dataset is $\{0 , 1\}$.
+
+In the feature space of the dataset, I will call a `Line Segment`, connecting two data points of same class, an `LS of that class`. (Note: Not `Line`, but `Line Segment`)
+
+That is, if a line segment connects two class-0 data points, then it is an `LS of Class 0`. Similarly, if a line segment connects two class-1 data points, then it is an `LS of Class 1`.
+
+Now, let me present two corrolaries based on this definition of `LS`.
+
+1. There exists a hyperplane in the feature space that is a perfect Decision Boundary $\implies$ The Hyperplane intersects with no `LS`.
+1. There exists a hyperplane in the feature space that is a perfect Decision Boundary $\iff $Every two LS of different classes lies on different sides of the hyperplane.
+
+Now the `deep pattern` as a theorem. if no one has already found and published it, let's call it `Rasel's LS Theorem` 😎.
+
+> There exists a hyperplane in the feature space that is a perfect Decision Boundary $\iff$ No two LS of different classes intersect.
+
+I will hint the proof, as I am so tired right now from working for last 10 hours on questions in this documents.
+
+We can construct a proof by contradiction. Assuming the part before '$\iff$' and the negative of the part after '$\iff$' contradicts Corrolary 2 above.
+
+##### Applying my theorem on 2-Feature XOR Dataset
+
+![](assets/LS-on-XOR-dataset.png)
+
+Two LS of different classes intersect in XOR Dataset's Feature Space.
+
+So, according to `Rasel's LS Theorem` 😎, XOR dataset is not linearly separable.
+
+##### How to detect this Deeper `LS Pattern`?
+
+This time, on this simple 2-Feature XOR Dataset, I have been able to detect two LS of different class intesecting just by plotting and manual observation.
+
+What if manual detection is not feasible or possible? Like when the feature space's dimension is more than 3. This is a question worth investigating.
+
+
+### What change is required to solve XOR successfully?
+
+We have tried to solve Binary Classification on the XOR Dataset using Perceptron, and failed. On this context, the change that is required is: instead of Perceptron, we need AN that is flexible enough to handle non-linearity.
+
+Perceptron is no more than linear in nature.
+
+### List two strengths of a perceptron.
+1. Perceptron can solve Binary Classification on Linearly Separable Dataset.
+1. And Perceptron can do it with very little memory and computational power, as it relies on simple linear arithmetic.
+
+### List two limitations of a perceptron.
+1. Perceptron fails to solve Binary Classification on Linearly Non-separable Dataset.
+1. The standard Perceptron uses the hard step function, thus lacking probabilistic output.
+
+### When should we avoid using a single-layer perceptron?
+1. If the task is Regression.
+1. If we need probabilistic output, not hard step values.
+1. If dataset is Linearly Non-separable.
+1. The data is multidimensional and Raw.
+
+### Given $x_1 = 1$, $x_2 = 1$, Weights $= [1, 1]$ and Bias $= -1.5$, will the perceptron output be $1$ or $0$? (Show reasoning in one line)
+
+Weights are an ones matrix, so the weighted sum is the sum of features and bias, namely $1+1+(-1.5)=0.5 \geq 0$. The output is $1$.
