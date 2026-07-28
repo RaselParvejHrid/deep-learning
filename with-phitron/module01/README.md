@@ -1,6 +1,6 @@
 # Module 01 | Introduction to Deep Learning and Perceptrons
 
-## My Solution to [Practice Problems](module001%20Practice%20Problems.pdf)
+## My Solution to [Practice Problems](module01%20Practice%20Problems.pdf)
 
 ### Table of Contents
 - [Module 01 | Introduction to Deep Learning and Perceptrons](#module-01--introduction-to-deep-learning-and-perceptrons)
