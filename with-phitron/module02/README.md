@@ -26,6 +26,11 @@
 16. [What is the purpose of `np.dot(X, w)` in perceptron code?](#what-is-the-purpose-of-npdotx-w-in-perceptron-code)
 17. [Why is matrix transpose used in weight updating?](#why-is-matrix-transpose-used-in-weight-updating)
 18. [What will happen if we remove the activation function?](#what-will-happen-if-we-remove-the-activation-function)
+19. [Why can OR gate be solved using a single perceptron?](#why-can-or-gate-be-solved-using-a-single-perceptron)
+20. [What is common between AND and OR gates from a geometry view?](#what-is-common-between-and-and-or-gates-from-a-geometry-view)
+21. [Does XOR need more features or more layers? Why?](#does-xor-need-more-features-or-more-layers-why)
+22. [What does linearly separable mean?](#what-does-linearly-separable-mean)
+23. [Why can’t a single straight line separate XOR data?](#why-cant-a-single-straight-line-separate-xor-data)
 
 <!-- /code_chunk_output -->
 
@@ -45,7 +50,7 @@ Its main components are:
 
 ### Is perceptron a classifier or a regressor? Explain briefly.
 
-A Perceptron's activation function is the step function, which has the set $\{ 0, 1\}$ as its domain, which is numerical, but discrete. So, `a Perceptron is a Classifier`.
+A Perceptron's activation function is the step function, which has the set $\{ 0, 1\}$ as its range, which is numerical, but discrete. So, `a Perceptron is a Classifier`.
 
 ### Why do we need to update weights in a perceptron?
 
@@ -244,9 +249,36 @@ That's why the transpose: $np.dot(X^T, y-\hat{y})$.
 
 
 ### What will happen if we remove the activation function?
+An `AN` first linearly combine the inputs. Then the output of the linear combination becomes input to the `Activation Function`, output from which become the output of the `AN`.
 
+The activation function is the opportunity for an AN to become more than 'Linear'.
 
+**With the activation function removed**, the AN loses this opportunity, and the plain linear combination of inputs directly becomes the output of the AN. It's just a linear regressor, though diversity in optimization criteria during training is possible. So, it cannot handle non-linear datasets.
 
+A Perceptron, with the Step Function as the Activation Function, do not use that opportunity, so it stays linear in nature. It just decides on the sign of linear combination, with the discrete set $\{0, 1\}$ as its range, making it a binary classifier. With linear dicison boundary, it can succeed only on linearly separable datasets. With a single linear decision boundary, it can not go beyond 'Binary'.
 
+### Why can OR gate be solved using a single perceptron?
+Because, the OR Dataset is linearly separable with two classes.
 
+### What is common between AND and OR gates from a geometry view?
+Every AND Dataset, whatever the dimension is, has a feature space that is linearly separable. So is true for every OR Dataset.
 
+For every AND/OR Dataset, whatever the dimension is, the feature-space distribution of the dataset is an n-cube, with exactly a data point sitting on each vertex of the n-cube. In 2D, that n-cube is a square. In 3D, that n-cube is a cube.
+
+And in every such dataset, an specific class has only 1 point and all other points belong to the other class.
+
+At this moment, my intuition is that: n-cube being a convex shape in every dimension, each dataset having exactly once point in one specific class and all other points in the other class, every AND/OR dataset is linearly separable.
+
+### Does XOR need more features or more layers? Why? 
+
+With only perception allowed as computational unit, the Binary Classification Problem on the XOR Dataset is solvable neither with more features nor with more layers nor with both.
+
+The XOR dataset comes with linear non-separability in its feature space. So, to succeed with XOR Dataset, we need flexibility that includes `Non-Linearity`.
+
+### What does linearly separable mean?
+
+A dataset with Binary Classes is called linearly separable, when a single hyperplane can separate the data points in its feature space into two regions, each containing data points of same class.
+
+### Why can’t a single straight line separate XOR data?
+
+A neccessary condition for Linear Separa
