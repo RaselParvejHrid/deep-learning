@@ -1,0 +1,260 @@
+# Module 02 | How Perceptrons Learn – Intuition, Code, and Edge Cases
+
+## My Solution to [Practice Problems](module02%20Practice%20Problems.pdf)
+
+### Table of Contents {ignore=true}
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=3 depthTo=3 orderedList=true} -->
+
+<!-- code_chunk_output -->
+
+1. [In one sentence, what problem does a perceptron solve?](#in-one-sentence-what-problem-does-a-perceptron-solve)
+2. [What are the three main components of a perceptron?](#what-are-the-three-main-components-of-a-perceptron)
+3. [Is perceptron a classifier or a regressor? Explain briefly.](#is-perceptron-a-classifier-or-a-regressor-explain-briefly)
+4. [Why do we need to update weights in a perceptron?](#why-do-we-need-to-update-weights-in-a-perceptron)
+5. [What happens if we never update the weights during training?](#what-happens-if-we-never-update-the-weights-during-training)
+6. [Which two quantities decide how much the weight changes?](#which-two-quantities-decide-how-much-the-weight-changes)
+7. [What does the term $(y − \hat{y})$ represent in perceptron learning?](#what-does-the-term-y--haty-represent-in-perceptron-learning)
+8. [If the prediction is correct, will weights change? Why?](#if-the-prediction-is-correct-will-weights-change-why)
+9. [What role does the learning rate (η) play intuitively?](#what-role-does-the-learning-rate-η-play-intuitively)
+10. [Write the AND gate truth table.](#write-the-and-gate-truth-table)
+11. [Why is AND gate linearly separable?](#why-is-and-gate-linearly-separable)
+12. [Draw a rough decision boundary that separates AND gate outputs.](#draw-a-rough-decision-boundary-that-separates-and-gate-outputs)
+13. [Why do we add a bias term in the perceptron?](#why-do-we-add-a-bias-term-in-the-perceptron)
+14. [Why is bias often added after summation?](#why-is-bias-often-added-after-summation)
+15. [Why do we initialize weights with small random values?](#why-do-we-initialize-weights-with-small-random-values)
+16. [What is the purpose of `np.dot(X, w)` in perceptron code?](#what-is-the-purpose-of-npdotx-w-in-perceptron-code)
+17. [Why is matrix transpose used in weight updating?](#why-is-matrix-transpose-used-in-weight-updating)
+18. [What will happen if we remove the activation function?](#what-will-happen-if-we-remove-the-activation-function)
+
+<!-- /code_chunk_output -->
+
+### In one sentence, what problem does a perceptron solve?
+
+`Perceptron` is the first successful learning algorithm that enables an `Artificial Neuron` (AN) to learn from data, thus enabling the AN (also called `Perceptron`, after the algorithm used to train it) to solve `Binary Classification Problem` for a `Linearly Separable Dataset`, while even more simplicity was allowed in its conception.
+
+### What are the three main components of a perceptron?
+
+From `a perceptron`, I infer `an AN trained using the Perceptron Algorithm`.
+
+Its main components are:
+
+1. `Weights and Bias` (to combine inputs linearly)
+2. `Step Function` (as Activation Function)
+3. `Input and Output` (as I cannot find a third, which is solely a component of the perceptron)
+
+### Is perceptron a classifier or a regressor? Explain briefly.
+
+A Perceptron's activation function is the step function, which has the set $\{ 0, 1\}$ as its domain, which is numerical, but discrete. So, `a Perceptron is a Classifier`.
+
+### Why do we need to update weights in a perceptron?
+
+`In Machine Learning, the whole point is that a model should learn its parameters from data`. So, during training (that is, learning), a perceptron should update its parameters, including `Weights`, when the data says, the current values of its parameters could be and should be improved to fit the data.
+
+### What happens if we never update the weights during training?
+
+Then, it's neither 'Learning', nor 'Training', nor 'Machine Learning', let alone 'Deep Learning'. Because, `In Machine Learning, the whole point is that a model should learn its parameters from data`.
+
+Such a model, stuck with random initial guesses for parameters (`Weights and Bias`), is sure to underfit the dataset.
+
+### Which two quantities decide how much the weight changes?
+
+1. `The Learning Rate`, denoted by the Greek Letter $\eta$ (eta).
+2. `The Product of 'Prediction Error' and 'Feature Value'`, in the current training example.
+
+### What does the term $(y − \hat{y})$ represent in perceptron learning?
+
+`The Prediction Error` in the current training example. $y$ is the true label and $\hat{y}$ is the prediction.
+
+### If the prediction is correct, will weights change? Why?
+
+`The Perception Update Rule` for `Weights` is:
+
+```math
+w_{i, \text{new}} \leftarrow w_{i, \text{old}} + \eta  (y − \hat{y}) x_i
+```
+
+The change is: $\Delta w = w_{i, \text{new}} - w_{i, \text{old}} = \eta  (y − \hat{y}) x_i$.
+
+If prediction is correct, for the current training example, a factor in $\Delta w$ is $0$, namely, $y- \hat{y} = 0$, making $\Delta w = 0$. Hence, `NO CHANGE`.
+
+### What role does the learning rate (η) play intuitively?
+
+```math
+\Delta w = \eta  (y − \hat{y}) x_i
+```
+
+$(y-\hat{y})x_i$ provides $\Delta w$ with correct direction toward optimality, which is nice. But its absolute value, from the general 'Gradient standpoint', is in a inverse relation with the distance to the optimal point.
+
+Without $\eta$, the risk is either overshooting or too slow convergence. The hyperparamer $\eta$ is about balancing this tradeoff, by modifying the step size suggested by $(y-\hat{y})x_i$.
+
+### Write the AND gate truth table.
+
+```math
+\begin{array}{|c|c|c|}
+\hline
+A & B & AND(A,B) \\
+\hline
+0 & 0 & 0 \\
+\hline
+0 & 1 & 0 \\
+\hline
+1 & 0 & 0 \\
+\hline
+1 & 1 & 1 \\
+\hline
+\end{array}
+```
+
+### Why is AND gate linearly separable?
+
+`The 2-Feature AND Dataset`, which is a Binary Classification Dataset, resembling the truth table for 2-Input AND Logic Gate, is called `Linearly Separable`, because it's `Feature Space` can be perfectly divided among its classes with a single hyperplance (which is a line in 2D and a plane in 3D). This answers why it is **called** `Linearly Separable`.
+
+But why is it ~~called~~ `Linearly Separable`? I won't attemp to construct a proof here. Let me present a intuition I have on this. A key of my intuition is about class distribution that **only a point has class `1`, and all others having `0`**.
+
+On 2D Version, the distribution of points in the feature space forms a square, with a point sitting at each vertex of the square. The point with class `1` is easily separable with a line, because the distribution shape in the feature space and the class distribution (only a single point having class `1`).
+
+On 3D Version, similar thing happens— a cube instead of a square, a plane instead of a line.
+
+I believe, following this intuition, a constructive proof is possible, with tools from vector and coordinate geometry.
+
+Draw a rough decision boundary that separates AND gate outputs.
+
+### Draw a rough decision boundary that separates AND gate outputs.
+
+![](assets/decision-boundary-and-dataset.png)
+
+See the generating code in [module02 Practice Problems.ipynb](module02%20Practice%20Problems.ipynb).
+
+
+### Why do we add a bias term in the perceptron?
+
+Let's recall a key step in how a trained perception predicts. It starts with `combining the inputs linearly`. The better the `Linear Combination`, the better the prediction. Well, then what decides a linear combination good or bad, and how is a perceptron supposed to have it or acquire it?
+
+A perception learns the optimal linear combination parameters (Weights and Bias) from training.
+
+What ensures optimality? The perceptron learns the parameters, during training, with supervision of truth values and by optimizing a loss function, called 'Perceptron Loss', that is tied to its activation function, namely, the step function.
+
+This Linear Combination Parameters (Weights and Bias) represent a 'Decision Boundary' on the feature space. This decision boundary is a line on 2D, a plane on 3D (generally, a hyperplane on any dimensional feature space).
+
+From coordinate geometry, not from ML, not from DL, from Coordinate Geometry, this dicision boundary has a equation of locus, with Feature values as coordinate variables, and Weights and Bias as equation parameter.
+
+From Coordinate Geometry, the `general equation of n-dimensional hyperplane` is this:
+```math
+w_1 x_1 + w_2 x_2 + \cdots \cdots \cdots + w_n x_n + b = 0
+```
+
+If the decision boundary passes through the coordinate origin, this $\text{Bias} = b = 0$, and we can omit the term, in other wors, no bias added.
+
+If the decision boundary does not pass through the coordinate origin, the bias is not zero. It must be there as put by Coordinate Geometry, again not by ML, not by DL.
+
+We add the `Bias` term while predicting with a perceptron, neither because we want it for mere engineering convenience, nor it is an engineering trick, nor it's a ML/DL technique. It is already in the perception, or not, decided during training depending the distribution of the feature space, to be added (if there) with $\sum w_i x_i$ during prediction.
+
+### Why is bias often added after summation?
+From Coordinate Geometry, the `general equation of n-dimensional hyperplane` is this:
+```math
+w_1 x_1 + w_2 x_2 + \cdots \cdots \cdots + w_n x_n + b = 0
+```
+
+From our ML/DL perspective, this gives us the linear decision boundary for our perceptron.
+
+Notice the Left-Hand Side Expression of the Equation.
+```math
+w_1 x_1 + w_2 x_2 + \cdots \cdots \cdots + w_n x_n + b
+```
+
+It is usually interpreted in ML/DL world as
+```math
+\left( \sum_{i=1}^{i=n} w_ix_i \right) + b
+```
+This interpretation is best for programming convenience (Looping). But it's foundation and validity is from Basic Arithmetic (Associativity of Addition).
+
+But is it the only interpretation? That we must add `Bias` only after performing the summation expressed by the Sigma Notation? No.
+
+The only restriction from Basic Arithmetic is that: we cannot add before performing the multiplications.
+
+We are allowed to do this: $w_1 x_1 + b + w_2 x_2 + \cdots \cdots \cdots + w_n x_n$, that is, adding the bias to the tentative weighted sum just after one multiplication.
+
+### Why do we initialize weights with small random values?
+We do not have to do so for a single Perceptron, or generally AN.
+
+But we must do so when it is a part of a deep neural network, which is prone to `Symmetry Problem` if all neurons start with same initial `Weights and Bias`.
+
+So, although we do not have to, we can do so for a single neuron, for the sake of consistency of habits.
+
+###  What is the purpose of `np.dot(X, w)` in perceptron code?
+This appears both during training and during prediction.
+
+This calculates the first term, inside braces, of the following equation.
+```math
+\left( \sum_{i=1}^{i=n} w_ix_i \right) + b
+```
+
+This is multiplying features values of an example with current weights.
+
+### Why is matrix transpose used in weight updating?
+Transposing a matrix creates a matrix whose rows are columns in the original matrix, and columns are rows in the original matrix.
+
+`The Perception Update Rule` for `Weights` is:
+
+```math
+w_{i, \text{new}} \leftarrow w_{i, \text{old}} + \eta  (y − \hat{y}) x_i
+```
+
+`The update formula above is for a single training example`.
+
+$w_{i,\text{old}}$ is the weight for the feature $x_i$ right before the iteration of the traning example.
+$w_{i,\text{new}}$ is the weight for the feature $x_i$ right after the iteration of the traning example.
+
+Let's generalize this for an epoch, that is a cycle of iteration over for all example or rows in the training set.
+
+```math
+w_{i, \text{new}} \leftarrow w_{i, \text{old}} + \eta \sum_{j=1}^{j=m} (y_j − \hat{y}_j) x_{i,j}
+```
+`The update formula above is for an epoch`.
+
+$\eta$ is constant across examples, so it can be moved outside sigma notation.
+
+$m$ is the number of examples in the training set.
+
+$j$ iterates over examples and $i$ over features.
+
+$w_{i,\text{old}}$ is now the weight for the feature $x_i$ right before the epoch.
+$w_{i,\text{new}}$ is the weight for the feature $x_i$ right after the the epoch
+
+Notice the sigma notation again.
+```math
+\sum_{j=1}^{j=m} (y_j − \hat{y}_j) x_{i,j}
+```
+
+**The terms of the final sum (sigma) are across all observations, but in a fixed term, which is a product, all the variable are from a single observation.**
+
+So, `the product must be performed between prediction error and feature value of the same observation (or row)`.
+
+That seems doable with `np.dot()`.
+
+With Pandas, we usually have, `pd#DataFrame X` with shape `(m, n)` and `pd#Series` $y - \hat{y}$ with shape $(m,)$. I will proceed assuming this.
+
+So, $np.dot(X, y-\hat{y})$ finishes the work, right? No.
+
+Note this behavior of `np.dot()`:
+> If a is an N-D array and b is a 1-D array, it (`np.dot()`) is a sum product over the last axis of a and b.
+
+So, `np.dot()` will though an error when $n \ne m$, as last axis length must be equal.
+
+What about when $n = m$? `np.dot()` will calculate and return a dot product, but even then it is not what we want. Because, $np.dot(X, y-\hat{y})$ is combining feature values with prediction error by multiplying, and also adding after multiplying, which sounds innocent, but it is doing two wrong things.
+1. While multiplying, it is combining features also with prediction error from **different** observations.
+1. While adding after multiplying, combining different features, to calculate necessary change in weight required for a single feature.
+
+Then, what should we do? Of course, we need to multiply, then sum the products. That's doable with `np.dot()`. But we need all the values of a single feature in a single row of the dataframe, not in a column as it is now or usually-is.
+
+That's why the transpose: $np.dot(X^T, y-\hat{y})$.
+
+
+### What will happen if we remove the activation function?
+
+
+
+
+
+
