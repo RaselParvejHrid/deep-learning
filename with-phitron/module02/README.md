@@ -90,7 +90,7 @@ Without $\eta$, the risk is either overshooting or too slow convergence. The hyp
 
 ### Write the AND gate truth table.
 
-```math
+$$
 \begin{array}{|c|c|c|}
 \hline
 A & B & AND(A,B) \\
@@ -104,7 +104,8 @@ A & B & AND(A,B) \\
 1 & 1 & 1 \\
 \hline
 \end{array}
-```
+$$
+
 
 ### Why is AND gate linearly separable?
 
