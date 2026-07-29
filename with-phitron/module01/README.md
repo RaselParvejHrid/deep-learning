@@ -15,7 +15,7 @@
     1. [What are weights in a perceptron?](#what-are-weights-in-a-perceptron)
     2. [How do weights affect the output of a perceptron?](#how-do-weights-affect-the-output-of-a-perceptron)
 3. [Perceptron Output](#perceptron-output)
-    1. [A perceptron has inputs $`x_1 = 2`$, $x_2 = 3$, weights $w_1 = 0.5$, $w_2 = 1$, and bias $b = 1$. Calculate the weighted sum (before activation).](#a-perceptron-has-inputs-x_1--2-x_2--3-weights-w_1--05-w_2--1-and-bias-b--1-calculate-the-weighted-sum-before-activation)
+    1. [A perceptron has inputs $`x_1 = 2`$, $`x_2 = 3`$, weights $`w_1 = 0.5`$, $`w_2 = 1`$, and bias $`b = 1`$. Calculate the weighted sum (before activation).](#a-perceptron-has-inputs-x_1--2-x_2--3-weights-w_1--05-w_2--1-and-bias-b--1-calculate-the-weighted-sum-before-activation)
 4. [Step function](#step-function)
     1. [What is the step function and how does it work?](#what-is-the-step-function-and-how-does-it-work)
 5. [Activation Function](#activation-function)
@@ -83,7 +83,7 @@ $$
 
 ### Perceptron Output
 
-#### A perceptron has inputs $`x_1 = 2`$, $x_2 = 3$, weights $w_1 = 0.5$, $w_2 = 1$, and bias $b = 1$. Calculate the weighted sum (before activation).
+#### A perceptron has inputs $`x_1 = 2`$, $`x_2 = 3`$, weights $`w_1 = 0.5`$, $`w_2 = 1`$, and bias $`b = 1`$. Calculate the weighted sum (before activation).
 
 We have,
 ```math
