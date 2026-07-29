@@ -14,7 +14,7 @@
 4. [Why do we need to update weights in a perceptron?](#why-do-we-need-to-update-weights-in-a-perceptron)
 5. [What happens if we never update the weights during training?](#what-happens-if-we-never-update-the-weights-during-training)
 6. [Which two quantities decide how much the weight changes?](#which-two-quantities-decide-how-much-the-weight-changes)
-7. [What does the term $(y − \hat{y})$ represent in perceptron learning?](#what-does-the-term-y--haty-represent-in-perceptron-learning)
+7. [What does the term $`(y − \hat{y})`$ represent in perceptron learning?](#what-does-the-term-y--haty-represent-in-perceptron-learning)
 8. [If the prediction is correct, will weights change? Why?](#if-the-prediction-is-correct-will-weights-change-why)
 9. [What role does the learning rate (η) play intuitively?](#what-role-does-the-learning-rate-η-play-intuitively)
 10. [Write the AND gate truth table.](#write-the-and-gate-truth-table)
@@ -35,7 +35,7 @@
 25. [List two strengths of a perceptron.](#list-two-strengths-of-a-perceptron)
 26. [List two limitations of a perceptron.](#list-two-limitations-of-a-perceptron)
 27. [When should we avoid using a single-layer perceptron?](#when-should-we-avoid-using-a-single-layer-perceptron)
-28. [Given $x_1 = 1$, $x_2 = 1$, Weights $= [1, 1]$ and Bias $= -1.5$, will the perceptron output be $1$ or $0$? (Show reasoning in one line)](#given-x_1--1-x_2--1-weights--1-1-and-bias---15-will-the-perceptron-output-be-1-or-0-show-reasoning-in-one-line)
+28. [Given $`x_1 = 1`$, $`x_2 = 1`$, Weights $`= [1, 1]`$ and Bias $`= -1.5`$, will the perceptron output be $`1`$ or $`0`$? (Show reasoning in one line)](#given-x_1--1-x_2--1-weights--1-1-and-bias---15-will-the-perceptron-output-be-1-or-0-show-reasoning-in-one-line)
 
 <!-- /code_chunk_output -->
 
@@ -72,7 +72,7 @@ Such a model, stuck with random initial guesses for parameters (`Weights and Bia
 1. `The Learning Rate`, denoted by the Greek Letter $\eta$ (eta).
 2. `The Product of 'Prediction Error' and 'Feature Value'`, in the current training example.
 
-### What does the term $(y − \hat{y})$ represent in perceptron learning?
+### What does the term $`(y − \hat{y})`$ represent in perceptron learning?
 
 `The Prediction Error` in the current training example. $y$ is the true label and $\hat{y}$ is the prediction.
 
@@ -355,6 +355,6 @@ Perceptron is no more than linear in nature.
 1. If dataset is Linearly Non-separable.
 1. The dataset is multidimensional and raw.
 
-### Given $x_1 = 1$, $x_2 = 1$, Weights $= [1, 1]$ and Bias $= -1.5$, will the perceptron output be $1$ or $0$? (Show reasoning in one line)
+### Given $`x_1 = 1`$, $`x_2 = 1`$, Weights $`= [1, 1]`$ and Bias $`= -1.5`$, will the perceptron output be $`1`$ or $`0`$? (Show reasoning in one line)
 
 Weights are an ones matrix, so the weighted sum is the sum of features and bias, namely $1+1+(-1.5)=0.5 \geq 0$. The output is $1$.
