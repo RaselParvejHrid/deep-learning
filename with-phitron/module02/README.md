@@ -55,7 +55,7 @@ Its main components are:
 
 ### Is perceptron a classifier or a regressor? Explain briefly.
 
-A Perceptron's activation function is the step function, which has the set $\{ 0, 1\}$ as its range, which is numerical, but discrete. So, `a Perceptron is a Classifier`.
+A Perceptron's activation function is the step function, which has the set $`\{ 0, 1\}`$ as its range, which is numerical, but discrete. So, `a Perceptron is a Classifier`.
 
 ### Why do we need to update weights in a perceptron?
 
@@ -261,7 +261,7 @@ The activation function is the opportunity for an AN to become more than 'Linear
 
 **With the activation function removed**, the AN loses this opportunity, and the plain linear combination of inputs directly becomes the output of the AN. It's just a linear regressor, though diversity in optimization criteria during training is possible. So, it cannot handle non-linear datasets.
 
-A Perceptron, with the Step Function as the Activation Function, do not use that opportunity, so it stays linear in nature. It just decides on the sign of linear combination, with the discrete set $\{0, 1\}$ as its range, making it a binary classifier. With linear dicison boundary, it can succeed only on linearly separable datasets. With a single linear decision boundary, it can not go beyond 'Binary'.
+A Perceptron, with the Step Function as the Activation Function, do not use that opportunity, so it stays linear in nature. It just decides on the sign of linear combination, with the discrete set $`\{0, 1\}`$ as its range, making it a binary classifier. With linear dicison boundary, it can succeed only on linearly separable datasets. With a single linear decision boundary, it can not go beyond 'Binary'.
 
 ### Why can OR gate be solved using a single perceptron?
 Because, the OR Dataset is linearly separable with two classes.
