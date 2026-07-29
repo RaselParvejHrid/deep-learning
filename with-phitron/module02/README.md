@@ -69,12 +69,12 @@ Such a model, stuck with random initial guesses for parameters (`Weights and Bia
 
 ### Which two quantities decide how much the weight changes?
 
-1. `The Learning Rate`, denoted by the Greek Letter $\eta$ (eta).
+1. `The Learning Rate`, denoted by the Greek Letter $`\eta`$ (eta).
 2. `The Product of 'Prediction Error' and 'Feature Value'`, in the current training example.
 
 ### What does the term $`(y − \hat{y})`$ represent in perceptron learning?
 
-`The Prediction Error` in the current training example. $y$ is the true label and $\hat{y}$ is the prediction.
+`The Prediction Error` in the current training example. $`y`$ is the true label and $`\hat{y}`$ is the prediction.
 
 ### If the prediction is correct, will weights change? Why?
 
@@ -84,9 +84,9 @@ Such a model, stuck with random initial guesses for parameters (`Weights and Bia
 w_{i, \text{new}} \leftarrow w_{i, \text{old}} + \eta  (y − \hat{y}) x_i
 ```
 
-The change is: $\Delta w = w_{i, \text{new}} - w_{i, \text{old}} = \eta  (y − \hat{y}) x_i$.
+The change is: $`\Delta w = w_{i, \text{new}} - w_{i, \text{old}} = \eta  (y − \hat{y}) x_i`$.
 
-If prediction is correct, for the current training example, a factor in $\Delta w$ is $0$, namely, $y- \hat{y} = 0$, making $\Delta w = 0$. Hence, `NO CHANGE`.
+If prediction is correct, for the current training example, a factor in $`\Delta w`$ is $`0`$, namely, $`y- \hat{y} = 0`$, making $`\Delta w = 0`$. Hence, `NO CHANGE`.
 
 ### What role does the learning rate (η) play intuitively?
 
@@ -94,9 +94,9 @@ If prediction is correct, for the current training example, a factor in $\Delta 
 \Delta w = \eta  (y − \hat{y}) x_i
 ```
 
-$(y-\hat{y})x_i$ provides $\Delta w$ with correct direction toward optimality, which is nice. But its absolute value, from the general 'Gradient standpoint', is in a inverse relation with the distance to the optimal point.
+$`(y-\hat{y})x_i`$ provides $`\Delta w`$ with correct direction toward optimality, which is nice. But its absolute value, from the general 'Gradient standpoint', is in a inverse relation with the distance to the optimal point.
 
-Without $\eta$, the risk is either overshooting or too slow convergence. The hyperparamer $\eta$ is about balancing this tradeoff, by modifying the step size suggested by $(y-\hat{y})x_i$.
+Without $`\eta`$, the risk is either overshooting or too slow convergence. The hyperparamer $`\eta`$ is about balancing this tradeoff, by modifying the step size suggested by $`(y-\hat{y})x_i`$.
 
 ### Write the AND gate truth table.
 
@@ -146,11 +146,11 @@ From Coordinate Geometry, the `general equation of n-dimensional hyperplane` is 
 w_1 x_1 + w_2 x_2 + \cdots \cdots \cdots + w_n x_n + b = 0
 ```
 
-If the decision boundary passes through the coordinate origin, this $\text{Bias} = b = 0$, and we can omit the term, in other wors, no bias added.
+If the decision boundary passes through the coordinate origin, this $`\text{Bias} = b = 0`$, and we can omit the term, in other wors, no bias added.
 
 If the decision boundary does not pass through the coordinate origin, the bias is not zero. It must be there as put by Coordinate Geometry, again not by ML, not by DL.
 
-We add the `Bias` term while predicting with a perceptron, neither because we want it for mere engineering convenience,  nor it's an ML/DL adaptation of the underlying Mathematics. It is already in the perception, or not, decided during training depending the distribution of the feature space, to be added (if there) with $\sum w_i x_i$ during prediction.
+We add the `Bias` term while predicting with a perceptron, neither because we want it for mere engineering convenience,  nor it's an ML/DL adaptation of the underlying Mathematics. It is already in the perception, or not, decided during training depending the distribution of the feature space, to be added (if there) with $`\sum w_i x_i`$ during prediction.
 
 ### Why is bias often added after summation?
 From Coordinate Geometry, the `general equation of n-dimensional hyperplane` is this:
@@ -175,7 +175,7 @@ But is it the only interpretation? That we must add `Bias` only after performing
 
 The only restriction from Basic Arithmetic is that: we cannot add before performing the multiplications.
 
-We are allowed to do this: $w_1 x_1 + b + w_2 x_2 + \cdots \cdots \cdots + w_n x_n$, that is, adding the bias to the tentative weighted sum just after one multiplication.
+We are allowed to do this: $`w_1 x_1 + b + w_2 x_2 + \cdots \cdots \cdots + w_n x_n`$, that is, adding the bias to the tentative weighted sum just after one multiplication.
 
 ### Why do we initialize weights with small random values?
 We do not have to do so for a single Perceptron, or generally AN.
@@ -205,8 +205,8 @@ w_{i, \text{new}} \leftarrow w_{i, \text{old}} + \eta  (y − \hat{y}) x_i
 
 `The update formula above is for a single training example`.
 
-$w_{i,\text{old}}$ is the weight for the feature $x_i$ right before the iteration of the traning example.
-$w_{i,\text{new}}$ is the weight for the feature $x_i$ right after the iteration of the traning example.
+$`w_{i,\text{old}}`$ is the weight for the feature $`x_i`$ right before the iteration of the traning example.
+$`w_{i,\text{new}}`$ is the weight for the feature $`x_i`$ right after the iteration of the traning example.
 
 Let's generalize this for an epoch, that is a cycle of iteration over for all example or rows in the training set.
 
@@ -215,14 +215,14 @@ w_{i, \text{new}} \leftarrow w_{i, \text{old}} + \eta \sum_{j=1}^{j=m} (y_j − 
 ```
 `The update formula above is for an epoch`.
 
-$\eta$ is constant across examples, so it can be moved outside sigma notation.
+$`\eta`$ is constant across examples, so it can be moved outside sigma notation.
 
-$m$ is the number of examples in the training set.
+$`m`$ is the number of examples in the training set.
 
-$j$ iterates over examples and $i$ over features.
+$`j`$ iterates over examples and $`i`$ over features.
 
-$w_{i,\text{old}}$ is now the weight for the feature $x_i$ right before the epoch.
-$w_{i,\text{new}}$ is the weight for the feature $x_i$ right after the the epoch
+$`w_{i,\text{old}}`$ is now the weight for the feature $`x_i`$ right before the epoch.
+$`w_{i,\text{new}}`$ is the weight for the feature $`x_i`$ right after the the epoch
 
 Notice the sigma notation again.
 ```math
@@ -235,23 +235,23 @@ So, `the product must be performed between prediction error and feature value of
 
 That seems doable with `np.dot()`.
 
-With Pandas, we usually have, `pd#DataFrame X` with shape `(m, n)` and `pd#Series` $y - \hat{y}$ with shape $(m,)$. I will proceed assuming this.
+With Pandas, we usually have, `pd#DataFrame X` with shape `(m, n)` and `pd#Series` $`y - \hat{y}`$ with shape $`(m,)`$. I will proceed assuming this.
 
-So, $np.dot(X, y-\hat{y})$ finishes the work, right? No.
+So, $`np.dot(X, y-\hat{y})`$ finishes the work, right? No.
 
 Note this behavior of `np.dot()`:
 > If a is an N-D array and b is a 1-D array, it (`np.dot()`) is a sum product over the last axis of a and b.
 
-So, `np.dot()` will though an error when $n \ne m$, as last axis length must be equal.
+So, `np.dot()` will though an error when $`n \ne m`$, as last axis length must be equal.
 
-What about when $n = m$? `np.dot()` will calculate and return a dot product, but even then it is not what we want.
-Because, $np.dot(X, y-\hat{y})$ is combining feature values with prediction error by multiplying, and also adding after multiplying, which sounds innocent, but it is doing two wrong things.
+What about when $`n = m`$? `np.dot()` will calculate and return a dot product, but even then it is not what we want.
+Because, $`np.dot(X, y-\hat{y})`$ is combining feature values with prediction error by multiplying, and also adding after multiplying, which sounds innocent, but it is doing two wrong things.
 1. While multiplying, it is combining features also with prediction error from **different** observations.
 1. While adding after multiplying, combining different features, to calculate necessary change in weight required for a single feature.
 
 Then, what should we do? Of course, we need to multiply, then sum the products. That's doable with `np.dot()`. But we need all the values of a single feature in a single row of the dataframe, not in a column as it is now or usually-is.
 
-That's why the transpose: $np.dot(X^T, y-\hat{y})$.
+That's why the transpose: $`np.dot(X^T, y-\hat{y})`$.
 
 
 ### What will happen if we remove the activation function?
@@ -301,7 +301,7 @@ So, in search of a different interpretation of this question, I found one that i
 
 After pondering about an hour on this interpretation of the question, I found a deeper pattern, out of the difference of the 2-Feature XOR Dataset from the 2-Feature AND and the 2-Feature OR Dataset, in class distribution geometry in their feature space. Let me present it with a draft outline of proof.
 
-Let me assume the classes of a Binary Classification Dataset is $\{0 , 1\}$.
+Let me assume the classes of a Binary Classification Dataset is $`\{0 , 1\}`$.
 
 In the feature space of the dataset, I will call a `Line Segment`, connecting two data points of same class, an `LS of that class`. (Note: Not `Line`, but `Line Segment`)
 
@@ -309,16 +309,16 @@ That is, if a line segment connects two class-0 data points, then it is an `LS o
 
 Now, let me state two `corollaries` tied to this definition of `LS`.
 
-1. **`Corollary 1:`** There exists a hyperplane in the feature space that is a perfect Decision Boundary $\implies$ The Hyperplane intersects with no `LS`.
-1. **`Corollary 2:`** There exists a hyperplane in the feature space that is a perfect Decision Boundary $\iff $Every two LS of different classes lies on different sides of the hyperplane.
+1. **`Corollary 1:`** There exists a hyperplane in the feature space that is a perfect Decision Boundary $`\implies`$ The Hyperplane intersects with no `LS`.
+1. **`Corollary 2:`** There exists a hyperplane in the feature space that is a perfect Decision Boundary $`\iff `$Every two LS of different classes lies on different sides of the hyperplane.
 
 Now the `deeper pattern` as a theorem. if no one has already found and published it, let's call it `Rasel's Line Segment Theorem for Linear Separability of a Binary Classification Dataset` 😎, in short, `Rasel's LS Theorem`.
 
-> There exists a hyperplane in the feature space that is a perfect Decision Boundary $\implies$ No two LS of different classes intersect.
+> There exists a hyperplane in the feature space that is a perfect Decision Boundary $`\implies`$ No two LS of different classes intersect.
 
 I will hint the proof, as I am so tired right now from working for last 10 hours on questions of this documents.
 
-The proof in my mind is a proof by contradiction. Assuming the part before '$\implies$' and the negative of the part after '$\implies$' contradicts Corollary 2 above.
+The proof in my mind is a proof by contradiction. Assuming the part before '$`\implies`$' and the negative of the part after '$`\implies`$' contradicts Corollary 2 above.
 
 ##### Applying my theorem on 2-Feature XOR Dataset
 
@@ -357,4 +357,4 @@ Perceptron is no more than linear in nature.
 
 ### Given $`x_1 = 1`$, $`x_2 = 1`$, Weights $`= [1, 1]`$ and Bias $`= -1.5`$, will the perceptron output be $`1`$ or $`0`$? (Show reasoning in one line)
 
-Weights are an ones matrix, so the weighted sum is the sum of features and bias, namely $1+1+(-1.5)=0.5 \geq 0$. The output is $1$.
+Weights are an ones matrix, so the weighted sum is the sum of features and bias, namely $`1+1+(-1.5)=0.5 \geq 0`$. The output is $`1`$.
