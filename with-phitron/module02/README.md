@@ -131,15 +131,15 @@ See the generating code in [module02 Practice Problems.ipynb](module02%20Practic
 
 ### Why do we add a bias term in the perceptron?
 
-Let's recall a key step in how a trained perception predicts. It starts with `combining the inputs linearly`. The better the `Linear Combination`, the better the prediction. Well, then what decides a linear combination good or bad, and how is a perceptron supposed to have it or acquire it?
+Let's recall a key step in how a trained perception predicts. It starts with `combining the inputs linearly`. The better the `Linear Combination`, the better the prediction performance. Well, then what decides a linear combination is good or bad, and how is a perceptron supposed to have it or acquire it?
 
-A perception learns the optimal linear combination parameters (Weights and Bias) from training.
+A perception learns the optimal linear combination parameters (`Weights and Bias`) from training.
 
 What ensures optimality? The perceptron learns the parameters, during training, with supervision of truth values and by optimizing a loss function, called 'Perceptron Loss', that is tied to its activation function, namely, the step function.
 
-This Linear Combination Parameters (Weights and Bias) represent a 'Decision Boundary' on the feature space. This decision boundary is a line on 2D, a plane on 3D (generally, a hyperplane on any dimensional feature space).
+This Linear Combination Parameters (`Weights and Bias`) represent a 'Linear Decision Boundary' on the feature space. This decision boundary is a line on 2D, a plane on 3D (generally, a hyperplane on any dimensional feature space).
 
-From coordinate geometry, not from ML, not from DL, from Coordinate Geometry, this dicision boundary has a equation of locus, with Feature values as coordinate variables, and Weights and Bias as equation parameter.
+From coordinate geometry, not from ML, not from DL, from Coordinate Geometry, this dicision boundary has a equation of locus, with Feature values as coordinate variables, and Weights and Bias as equation parameters.
 
 From Coordinate Geometry, the `general equation of n-dimensional hyperplane` is this:
 ```math
@@ -150,7 +150,7 @@ If the decision boundary passes through the coordinate origin, this $\text{Bias}
 
 If the decision boundary does not pass through the coordinate origin, the bias is not zero. It must be there as put by Coordinate Geometry, again not by ML, not by DL.
 
-We add the `Bias` term while predicting with a perceptron, neither because we want it for mere engineering convenience, nor it is an engineering trick, nor it's a ML/DL technique. It is already in the perception, or not, decided during training depending the distribution of the feature space, to be added (if there) with $\sum w_i x_i$ during prediction.
+We add the `Bias` term while predicting with a perceptron, neither because we want it for mere engineering convenience,  nor it's an ML/DL adaptation of the underlying Mathematics. It is already in the perception, or not, decided during training depending the distribution of the feature space, to be added (if there) with $\sum w_i x_i$ during prediction.
 
 ### Why is bias often added after summation?
 From Coordinate Geometry, the `general equation of n-dimensional hyperplane` is this:
@@ -299,7 +299,7 @@ So, in search of a different interpretation of this question, I found one that i
 
 #### Is there any deeper pattern that decides Linear Separability?
 
-After pondering about an hour on this interpretation of the question, I found a deeper pattern. Let me present it with a draft outline of proof.
+After pondering about an hour on this interpretation of the question, I found a deeper pattern, out of the difference of the 2-Feature XOR Dataset from the 2-Feature AND and the 2-Feature OR Dataset, in class distribution geometry in their feature space. Let me present it with a draft outline of proof.
 
 Let me assume the classes of a Binary Classification Dataset is $\{0 , 1\}$.
 
@@ -307,18 +307,18 @@ In the feature space of the dataset, I will call a `Line Segment`, connecting tw
 
 That is, if a line segment connects two class-0 data points, then it is an `LS of Class 0`. Similarly, if a line segment connects two class-1 data points, then it is an `LS of Class 1`.
 
-Now, let me present two corrolaries based on this definition of `LS`.
+Now, let me state two `corollaries` tied to this definition of `LS`.
 
-1. There exists a hyperplane in the feature space that is a perfect Decision Boundary $\implies$ The Hyperplane intersects with no `LS`.
-1. There exists a hyperplane in the feature space that is a perfect Decision Boundary $\iff $Every two LS of different classes lies on different sides of the hyperplane.
+1. **`Corollary 1:`** There exists a hyperplane in the feature space that is a perfect Decision Boundary $\implies$ The Hyperplane intersects with no `LS`.
+1. **`Corollary 2:`** There exists a hyperplane in the feature space that is a perfect Decision Boundary $\iff $Every two LS of different classes lies on different sides of the hyperplane.
 
-Now the `deep pattern` as a theorem. if no one has already found and published it, let's call it `Rasel's LS Theorem` 😎.
+Now the `deeper pattern` as a theorem. if no one has already found and published it, let's call it `Rasel's Line Segment Theorem for Linear Separability of a Binary Classification Dataset` 😎, in short, `Rasel's LS Theorem`.
 
-> There exists a hyperplane in the feature space that is a perfect Decision Boundary $\iff$ No two LS of different classes intersect.
+> There exists a hyperplane in the feature space that is a perfect Decision Boundary $\implies$ No two LS of different classes intersect.
 
-I will hint the proof, as I am so tired right now from working for last 10 hours on questions in this documents.
+I will hint the proof, as I am so tired right now from working for last 10 hours on questions of this documents.
 
-We can construct a proof by contradiction. Assuming the part before '$\iff$' and the negative of the part after '$\iff$' contradicts Corrolary 2 above.
+The proof in my mind is a proof by contradiction. Assuming the part before '$\implies$' and the negative of the part after '$\implies$' contradicts Corollary 2 above.
 
 ##### Applying my theorem on 2-Feature XOR Dataset
 
@@ -326,13 +326,13 @@ We can construct a proof by contradiction. Assuming the part before '$\iff$' and
 
 Two LS of different classes intersect in XOR Dataset's Feature Space.
 
-So, according to `Rasel's LS Theorem` 😎, XOR dataset is not linearly separable.
+So, according to contrapositive equivalent of `Rasel's LS Theorem` 😎, XOR dataset is not linearly separable.
 
 ##### How to detect this Deeper `LS Pattern`?
 
-This time, on this simple 2-Feature XOR Dataset, I have been able to detect two LS of different class intesecting just by plotting and manual observation.
+This time, on this simple 2-Feature XOR Dataset, I have been able to detect two `LS` of different class intesecting just by plotting and manual observation.
 
-What if manual detection is not feasible or possible? Like when the feature space's dimension is more than 3. This is a question worth investigating.
+What if manual detection is not feasible or not possible? Like if the feature space's dimension is more than 3? This is a question worth investigating.
 
 
 ### What change is required to solve XOR successfully?
@@ -351,9 +351,9 @@ Perceptron is no more than linear in nature.
 
 ### When should we avoid using a single-layer perceptron?
 1. If the task is Regression.
-1. If we need probabilistic output, not hard step values.
+1. If we need probabilistic classification, not just hard step values.
 1. If dataset is Linearly Non-separable.
-1. The data is multidimensional and Raw.
+1. The dataset is multidimensional and raw.
 
 ### Given $x_1 = 1$, $x_2 = 1$, Weights $= [1, 1]$ and Bias $= -1.5$, will the perceptron output be $1$ or $0$? (Show reasoning in one line)
 
