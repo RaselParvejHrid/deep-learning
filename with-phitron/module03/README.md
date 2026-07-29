@@ -15,7 +15,7 @@
     3. [Explain with an example how changing weights affects the orientation of the decision boundary.](#explain-with-an-example-how-changing-weights-affects-the-orientation-of-the-decision-boundary)
     4. [Why is it important to visualize the decision boundary when training a model?](#why-is-it-important-to-visualize-the-decision-boundary-when-training-a-model)
 2. [Calculation Problems](#calculation-problems)
-    1. [A perceptron has initial Weights $w=[0.2 -0.1]$, initial Bias $b=0.1$ and Learning Rate $\eta = 0.1$. For a training example $x = [1 1]$, target is $t=1$ and the perceptron output is $y=0$. Calculate the new weights and bias after one update, using $w_{\text{new}} \leftarrow w_{\text{old}} + \eta (t-y) x$ and $b_{\text{new}} \leftarrow b_{\text{old}} + \eta (t-y)$.](#a-perceptron-has-initial-weights-w02--01-initial-bias-b01-and-learning-rate-eta--01-for-a-training-example-x--1-1-target-is-t1-and-the-perceptron-output-is-y0-calculate-the-new-weights-and-bias-after-one-update-using-w_textnew-leftarrow-w_textold--eta-t-y-x-and-b_textnew-leftarrow-b_textold--eta-t-y)
+    1. [A perceptron has initial Weights $w=[0.2, -0.1]$, initial Bias $b=0.1$ and Learning Rate $\eta = 0.1$. For a training example $x = [1, 1]$, target is $t=1$ and the perceptron output is $y=0$. Calculate the new weights and bias after one update, using $w_{\text{new}} \leftarrow w_{\text{old}} + \eta (t-y) x$ and $b_{\text{new}} \leftarrow b_{\text{old}} + \eta (t-y)$.](#a-perceptron-has-initial-weights-w02--01-initial-bias-b01-and-learning-rate-eta--01-for-a-training-example-x--1-1-target-is-t1-and-the-perceptron-output-is-y0-calculate-the-new-weights-and-bias-after-one-update-using-w_textnew-leftarrow-w_textold--eta-t-y-x-and-b_textnew-leftarrow-b_textold--eta-t-y)
 
 <!-- /code_chunk_output -->
 
@@ -33,4 +33,49 @@
 
 ### Calculation Problems
 
-#### A perceptron has initial Weights $w=[0.2 -0.1]$, initial Bias $b=0.1$ and Learning Rate $\eta = 0.1$. For a training example $x = [1 1]$, target is $t=1$ and the perceptron output is $y=0$. Calculate the new weights and bias after one update, using $w_{\text{new}} \leftarrow w_{\text{old}} + \eta (t-y) x$ and $b_{\text{new}} \leftarrow b_{\text{old}} + \eta (t-y)$.
+#### A perceptron has initial Weights $w=[0.2, -0.1]$, initial Bias $b=0.1$ and Learning Rate $\eta = 0.1$. For a training example $x = [1, 1]$, target is $t=1$ and the perceptron output is $y=0$. Calculate the new weights and bias after one update, using $w_{\text{new}} \leftarrow w_{\text{old}} + \eta (t-y) x$ and $b_{\text{new}} \leftarrow b_{\text{old}} + \eta (t-y)$.
+
+For this training example,
+```math
+\eta (t-y) = 0.1 (1-0) = 0.1
+```
+For the first feature,
+
+```math
+\begin{aligned}
+x_1 &= 1 \\
+\\
+w_{1,\text{new}} &\leftarrow w_{1,\text{old}} + \eta (t-y)x_1 \\
+&= 0.2 + 0.1 \times 1 \\
+&=0.3
+\end{aligned}
+```
+
+For the second feature,
+
+```math
+\begin{aligned}
+x_2 &= 1 \\
+\\
+w_{2,\text{new}} &\leftarrow w_{2,\text{old}} + \eta (t-y)x_2 \\
+&= (-0.1) + 0.1 \times 1 \\
+&=0
+\end{aligned}
+```
+
+And,
+```math
+\begin{aligned}
+b_{\text{new}} &\leftarrow b_{\text{old}} + \eta (t-y) \\
+&= 0.1 + 0.1 \\
+&=0.2
+\end{aligned}
+```
+
+Hence,
+```math
+\begin{aligned}
+\text{New Weights, } w &= [0.3, 0] \\
+\text{New Bias, } b &= 0.2
+\end{aligned}
+```
