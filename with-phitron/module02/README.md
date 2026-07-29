@@ -324,6 +324,8 @@ The proof in my mind is a proof by contradiction. Assuming the part before '$`\i
 
 ![](assets/LS-on-XOR-dataset.png)
 
+See the generating code in [module02 Practice Problems.ipynb](module02%20Practice%20Problems.ipynb).
+
 Two LS of different classes intersect in XOR Dataset's Feature Space.
 
 So, according to contrapositive equivalent of `Rasel's LS Theorem` 😎, XOR dataset is not linearly separable.
