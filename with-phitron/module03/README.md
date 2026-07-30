@@ -200,7 +200,7 @@ Let's have a look at the New (Violet) Decision Boundary with new $w_1$, $w_2$ an
 
 Notice, from the Violet one to the Newer Orange one,
 1. decision regions changed again, as it should.
-1. the decision boundary moved toward a direction so that our mis-classified example `E` is closer to its true decision region. And after update of all of Weights and Bias, with respect to the Newest (Orange) Decision Boundary, our misclassified example is finally in its true decision region, as guaranted by the algorithm.
+1. the decision boundary moved toward a direction so that our mis-classified example `E` is closer to its true decision region. And after update of all of Weights and Bias, with respect to the Newest (Orange) Decision Boundary, our misclassified example is finally in its true decision region, in this lucky scenerio.
 1. Both $x_{1, \text{int}}$ and $x_{2, \text{int}}$ is changed, because we have changed $b$ with no change in $w_1$ and $w2$, thus changing both $-\frac{b}{w_1}$ and $-\frac{b}{w_2}$.
 1. the Violet Decision Boundary and the Newer Orange Decision Boundary is `parallel`. This `parallelism` is the hallmark of changing $b$ without changing $w_i$s.
 
@@ -208,8 +208,6 @@ Notice, from the Violet one to the Newer Orange one,
 When a perceptron updates in `Weights` and `Bias`, during training, in response to current-weights-and-bias-based misclassification of a training example,
 1. it adjusts its decision boundary along every $x_i$-feature-axis (not for all axes at once, but one after one, though parallel computation is possible) by updating $w_i$, which updates the `point of intersection` or the `existence of a point of intersection` between the axis and the decision boundary.
 1. then, it adjusts the decision boundary by moving it parallelly from its current position, updating either `the points of intersection` or `distance` between the decision boundary and the axes, for all axes at once.
-
-The algorithm guarantees that the training example is in its true decision region now.
 
 #### Why is it important to visualize the decision boundary when training a model?
 Visualizing the changing Decision Boundary, while training,
