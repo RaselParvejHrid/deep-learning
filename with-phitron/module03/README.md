@@ -70,20 +70,22 @@ So, with fixed `Weights`,
 I will consider a scenerio based on the scenerio presented in the [Calculation Problem](#a-perceptron-has-initial-weights-w02--01-initial-bias-b01-and-learning-rate-eta--01-for-a-training-example-x--1-1-target-is-t1-and-the-perceptron-output-is-y0-calculate-the-new-weights-and-bias-after-one-update-using-w_textnew-leftarrow-w_textold--eta-t-y-x-and-b_textnew-leftarrow-b_textold--eta-t-y) below, instead of constructing a scenerio myself, with hopeful trust that my mentor has designed this scenerio with care and his longer experience.
 
 So, my training example `E`:
-$$
+
+```math
 \begin{aligned}
 E =\left( X, y\right) &= \left( \begin{bmatrix}x_1 & x_2\end{bmatrix}, y\right) \\
 &= \left( \begin{bmatrix}1 & 1\end{bmatrix}, y\right)
 \end{aligned}
-$$
+```
+
 
 Old weights and Bias of the perceptron:
-$$
+```math
 \begin{aligned}
 \left( W, b\right) &= \left( \begin{bmatrix}w_1 & w_2\end{bmatrix}, b\right) \\
 &= \left( \begin{bmatrix} 0.2 & -0.1\end{bmatrix}, 0.1\right)
 \end{aligned}
-$$
+```
 
 Let's plot the old Decision Boundary on Feature Space.
 
@@ -126,12 +128,12 @@ Now, if the true class of our example $`E`$ is $`1`$, we have to update neither 
 Now, let's assume, the true class of our example $`E`$ is $`0`$. We also assume, our learning rate $`\eta`$ is $`0.1`$.
 
 Then for our example,
-$$
+```math
 \begin{aligned}
 \eta(y-\hat{y}) &= 0.1 (0-1) \\
 &= -0.1
 \end{aligned}
-$$
+```
 
 ##### Updating $`w_1`$
 
@@ -147,7 +149,7 @@ w_{1,\text{new}} &\leftarrow w_{1,\text{old}} + \eta(y-\hat{y})x_1 \\
 \end{aligned}
 $$
 
-Let's have a look at the *New (Maroon) Decision Boundary with new $`w_1`$, but old $`w_2`$ and $`b`$*, below.
+Let's have a look at the New (Maroon) Decision Boundary with new $`w_1`$, but old $`w_2`$ and $`b`$, below.
 
 ![](assets/new-w1-db.png)
 
@@ -171,7 +173,7 @@ w_{2,\text{new}} &\leftarrow w_{2,\text{old}} + \eta(y-\hat{y})x_2 \\
 \end{aligned}
 $$
 
-Let's have a look at the *New (Violet) Decision Boundary with new $`w_1`$ and $`w_2`$, but old $`b`$*, below.
+Let's have a look at the New (Violet) Decision Boundary with new $`w_1`$ and $`w_2`$, but old $`b`$, below.
 
 ![](assets/new-w1-w2-db.png)
 
@@ -192,7 +194,7 @@ b_{\text{new}} &\leftarrow b_{\text{old}} + \eta (y-\hat{y}) \\
 \end{aligned}
 $$
 
-Let's have a look at the *New (Violet) Decision Boundary with new $`w_1`$, $`w_2`$ and $`b`$*, below.
+Let's have a look at the New (Violet) Decision Boundary with new $`w_1`$, $`w_2`$ and $`b`$, below.
 
 ![](assets/new-w1-w2-b-db.png)
 
