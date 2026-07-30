@@ -24,7 +24,7 @@
 ### Conceptual Questions
 
 #### What is a decision boundary, and how does it relate to classification tasks?
-In the feature space of a Binary Classification Dataset, a decision boundary is a hyperplane or hypersurface that divides the feature space into two regions, which is a straight line or non-linear curve in 2D feature space— a plane or a non-linear surface in 3D feature space and so on.
+In the feature space of a Binary Classification Dataset, a decision boundary is a hyperplane or hypersurface — which is a straight line or a non-linear curve in 2D feature space, a plane or a non-linear surface in 3D feature space and so on — that divides the feature space into two regions.
 
 Every classification algorithm that produces hard class labels induces decision boundaries, though not all of them explicitly model or optimize one. In Binary Classification with a single decision boundary that produces two decision regions, the model predicts that all of the data points in a region belong to one class, while all data points in the other region belongs to the other class. 
 
@@ -63,7 +63,7 @@ So, with fixed `Weights`,
     * $`x_i`$ has no effect in the decision.
     * the case is of `incidence` $`\iff b = 0`$.
     * the case is of `parallelism` $`\iff b \neq 0`$.
-    * as $`\left| b \right|`$ increases, the decision boundary gets way from the axis.
+    * as $`\left| b \right|`$ increases, the decision boundary gets away from the axis.
     * as $`\left| b \right|`$ decreases, the decision boundary gets closer to the axis.
       
 #### Explain with an example how changing weights affects the orientation of the decision boundary.
@@ -202,12 +202,17 @@ Notice, from the Violet one to the Newer Orange one,
 1. decision regions changed again, as it should.
 1. the decision boundary moved toward a direction so that our mis-classified example `E` is closer to its true decision region. And for this lucky scenerio, with respect to the Newest (Orange) Decision Boundary, our mis-classified example is finally in its true decision region.
 1. Both $`x_{1, \text{int}}`$ and $`x_{2, \text{int}}`$ is changed, because we have changed $`b`$ with no change in $`w_1`$ and $`w2`$, thus changing both $`-\frac{b}{w_1}`$ and $`-\frac{b}{w_2}`$.
-1. the Violet Decision Boundary and the Newer Orange Decision Boundary is parallel. This is the hallmark of changing $`b`$ without changing $`w_i`$s.
+1. the Violet Decision Boundary and the Newer Orange Decision Boundary is `parallel`. This `parallelism` is the hallmark of changing $`b`$ without changing $`w_i`$s.
+
+###### Summary
+When a perceptron updates in `Weights` and `Bias`, during training, in response to current-weights-and-bias-based misclassification of a training example,
+1. it adjusts its decision boundary along every $`x_i`$-feature-axis (not for all axes at once, but one after one, though parallel computation is possible) by updating $`w_i`$, which updates the `point of intersection` or the `existence of a point of intersection` between the axis and the decision boundary.
+1. at last, it adjusts the decision boundary by moving it parallelly from its current position, updating either `the points of intersection` or `distance` between the decision boundary and the axes, for all axes at once.
 
 #### Why is it important to visualize the decision boundary when training a model?
 Visualizing the changing Decision Boundary, while training,
 1. can help understand the algorithm.
-1. can be used to keep an watch if the Decision Boundary is moving in right direction, with supervision of the current training example, which can help to detect any mistake in implementation code.
+1. can be used to keep an watch if the Decision Boundary is moving in right direction, with supervision of the class of the current training example, which can help to detect any mistake in implementation code.
 
 ### Calculation Problems
 
@@ -258,4 +263,4 @@ Hence,
 \end{aligned}
 ```
 
-**Note:** While working on [Explain with an example how changing weights affects the orientation of the decision boundary](#explain-with-an-example-how-changing-weights-affects-the-orientation-of-the-decision-boundary) problem above, I found that the premised perceptron prediction $`y=0`$ in this problem is inconsistent with given `Weights`, `Bias` and `training example`. While solving this problem, I thought to check the consistency, but did not, because I also thought that my mentor wouldn't start posing trick questions to me so soon. That was a wrong thought from me.
+**Note:** While working on [Explain with an example how changing weights affects the orientation of the decision boundary](#explain-with-an-example-how-changing-weights-affects-the-orientation-of-the-decision-boundary) problem above, I found that the premised perceptron prediction $`y=0`$ in this problem is inconsistent with given `Weights`, `Bias` and `training example`. While solving this problem, I thought to check the consistency, but did not, because I also thought that my mentor wouldn't start posing trick questions to me so soon. The later was a wrong thought from me.
