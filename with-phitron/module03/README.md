@@ -48,9 +48,9 @@ With fixed `Weights`,
 1. $`b=0 \iff`$ the decision boundary goes through the origin of the feature space.
 1. if $`b \neq 0`$, the decision boundary intersects—
     * the $`x_1`$-axis at point $`\left( -\frac{b}{w_1}, 0, \cdots \cdots \cdots, 0\right)`$, with $`x_1`$-intercept of the decision boundary equal to $`-\frac{b}{w_1}`$.
-    * the $`x_2`$-axis at point $`\left(0, -\frac{b}{w_2}, \cdots \cdots \cdots, 0\right)`$, with $`x_2`$-intercept of the decision boundary equal to $`-\frac{b}{w_2}`$.
-    $`\vdots`$
-    $`\vdots`$
+    * the $`x_2`$-axis at point $`\left(0, -\frac{b}{w_2}, \cdots \cdots \cdots, 0\right)`$, with $`x_2`$-intercept of the decision boundary equal to $`-\frac{b}{w_2}`$. \
+    $`\vdots`$ \
+    $`\vdots`$ \
     $`\vdots`$
     * the $`x_n`$-axis at point $`\left(0, 0, \cdots \cdots \cdots, -\frac{b}{w_n}\right)`$, with $`x_n`$-intercept of the decision boundary equal to $`-\frac{b}{w_n}`$.
 
