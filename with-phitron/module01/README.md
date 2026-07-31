@@ -148,7 +148,7 @@ Without an activation function, the `Weighted Sum` is the (final) output of the 
 
 Consequently, without an activation function, no matter how many neurons are stacked upon one another in how many layers, the neural network too would be linear in its expressive power or capability.
 
-So, an Activation Function is more an `opportunity to introduce non-linearity, into an AN's capability or expressive power, upon the initial Linear Weighted Sum Transformation` than anything else.
+So, an Activation Function is more `an opportunity to introduce non-linearity, into an AN's capability or expressive power, upon the initial Linear Weighted Sum Transformation` than anything else.
 
 A perceptron, using the Step Function as its Activation Function, barely uses this opportunity of `Non-Linearity'. It uses this opportunity more to become a Binary Classifier, upon the Linear Weighted Sum Function $WS_{\vec{W}, b}(\vec{X}) \equiv \vec{W}\cdot \vec{X} + b$, with $WS_{\vec{W}, b}(\vec{X}) = 0$ as its decision boundary, succeeding only on Linearly Separable Datasets. Also, as the range of the step function is not continuous, but discrete with hard steps, it lacks probabilistic classification.
 
