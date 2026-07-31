@@ -213,6 +213,7 @@ When a perceptron updates in `Weights` and `Bias`, during training, in response 
 Visualizing the changing Decision Boundary, while training,
 1. can help understand the algorithm.
 1. can be used to keep an watch if the Decision Boundary is moving in right direction, with supervision of the class of the current training example, which can help to detect any mistake in implementation code.
+1. can help us decide if we have acquired a good-enough or best-possible decision boundary and if we need more training epochs or we can proceed to testing/evaluation phase.
 
 ### Calculation Problems
 
