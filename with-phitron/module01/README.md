@@ -144,11 +144,13 @@ Then this linear `Weighted Sum` is fed to the activation function, which generat
 
 An activation function is an opportunity, with endless possibilities, to modify the output of the `Weighted Sum` function before the neuron outputs.
 
-Without an activation function, the `Weighted Sum` is the (final) output of the AN. This case is equivalent to using the identity function $f(x)=x$ as the activation function.
+Without an activation function, the `Weighted Sum` is the (final) output of the AN. This case is equivalent to using the identity function $f(x)=x$ as the activation function. In both cases, the neuron would be just a linear model, nothing more.
 
-A beautiful and widely-accepted opportunity offered by Activation Function is the `opportunity to introduce non-linearity, into an AN, upon the Linear Weighted Sum`.
+Consequently, without an activation function, no matter how many neurons are stacked upon one another in how many layers, the neural network too would be linear in its expressive power or capability.
 
-A perceptron, using the Step Function as its Activation Function, does not use this opportunity of `Non-Linearity'. It uses this opportunity to become a Binary Classifier, upon the Linear Weighted Sum Function $WS_{\vec{W}, b}(\vec{X}) \equiv \vec{W}\cdot \vec{X} + b$, with $WS_{\vec{W}, b}(\vec{X}) = 0$ as its decision boundary, succeeding only on Linearly Separable Datasets. Also, as the range of the step function is not continuous, but discrete with hard steps, it lacks probabilistic classification.
+So, an Activation Function is more an `opportunity to introduce non-linearity, into an AN's capability or expressive power, upon the initial Linear Weighted Sum Transformation` than anything else.
+
+A perceptron, using the Step Function as its Activation Function, barely uses this opportunity of `Non-Linearity'. It uses this opportunity more to become a Binary Classifier, upon the Linear Weighted Sum Function $WS_{\vec{W}, b}(\vec{X}) \equiv \vec{W}\cdot \vec{X} + b$, with $WS_{\vec{W}, b}(\vec{X}) = 0$ as its decision boundary, succeeding only on Linearly Separable Datasets. Also, as the range of the step function is not continuous, but discrete with hard steps, it lacks probabilistic classification.
 
 
 So, why does an standard AN need an activation function? To modify the output of the Linear Weighted Sum Function, before the AN outputs.
