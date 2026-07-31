@@ -34,7 +34,7 @@
 
 #### What is a bias in a perceptron?
 
-The `Bias` $(b)$ is a parameter of any standard `AN`, not only of a perceptron, additional to the `Weights` $(W = [w_i])$ parameter, that the perceptron learns tentatively during training, and uses it, together with `Weights`, during both training and prediction, to combine an input observation linearly toward the output.
+The `Bias` $`(b)`$ is a parameter of any standard `AN`, not only of a perceptron, additional to the `Weights` $`(W = [w_i])`$ parameter, that the perceptron learns tentatively during training, and uses it, together with `Weights`, during both training and prediction, to combine an input observation linearly toward the output.
 
 #### Why do we add bias to a perceptron?
 
@@ -53,11 +53,11 @@ From Coordinate Geometry, the `general equation of n-dimensional hyperplane` is 
 w_1 x_1 + w_2 x_2 + \cdots \cdots \cdots + w_n x_n + b = 0
 ```
 
-If the decision boundary passes through the coordinate origin, this $\text{Bias} = b = 0$, and we can omit the term, in other wors, no bias added.
+If the decision boundary passes through the coordinate origin, this $`\text{Bias} = b = 0`$, and we can omit the term, in other wors, no bias added.
 
 If the decision boundary does not pass through the coordinate origin, the bias is not zero. It must be there as put by Coordinate Geometry, again not by ML, not by DL.
 
-We add the `Bias` term while predicting with a perceptron, neither because we want it for mere engineering convenience,  nor it's an ML/DL adaptation of the underlying Mathematics. It is already in the perception, or not, decided during training depending the distribution of the feature space, to be added (if there) with $\sum w_i x_i$ during prediction.
+We add the `Bias` term while predicting with a perceptron, neither because we want it for mere engineering convenience,  nor it's an ML/DL adaptation of the underlying Mathematics. It is already in the perception, or not, decided during training depending the distribution of the feature space, to be added (if there) with $`\sum w_i x_i`$ during prediction.
 
 <!-- pagebreak -->
 
@@ -65,10 +65,10 @@ We add the `Bias` term while predicting with a perceptron, neither because we wa
 
 #### What are weights in a perceptron?
 
-`Weights` $(W = [w_i])$ are the measures of importance of the individual features/inputs toward the final decision or output of the perceptron.
+`Weights` $`(W = [w_i])`$ are the measures of importance of the individual features/inputs toward the final decision or output of the perceptron.
 
 #### How do weights affect the output of a perceptron?
-Suppose, from training, the Perceptron learns that the weight of input $x_i$ is $w_i$.
+Suppose, from training, the Perceptron learns that the weight of input $`x_i`$ is $`w_i`$.
 
 $$
 \text{Influence of a Feature on Activation Decision:}
@@ -102,7 +102,7 @@ We have,
 \end{aligned}
 ```
 
-So, the weighted sum is $5$.
+So, the weighted sum is $`5`$.
 
 <!-- pagebreak -->
 
@@ -118,7 +118,7 @@ y_{step}(x) = \begin{cases}
 \end{cases}
 $$
 
-This $\mathbf{\color{Blue} 0}$ is called the `(Decision) Threshold` of the step function.
+This $`\mathbf{\color{Blue} 0}`$ is called the `(Decision) Threshold` of the step function.
 
 When this function is used as the activation function,
 $$x = \text{Weighted Sum.}$$
@@ -144,13 +144,13 @@ Then this linear `Weighted Sum` is fed to the activation function, which generat
 
 An activation function is an opportunity, with endless possibilities, to modify the output of the `Weighted Sum` function before the neuron outputs.
 
-Without an activation function, the `Weighted Sum` is the (final) output of the AN. This case is equivalent to using the identity function $f(x)=x$ as the activation function. In both cases, the neuron would be just a linear model, nothing more.
+Without an activation function, the `Weighted Sum` is the (final) output of the AN. This case is equivalent to using the identity function $`f(x)=x`$ as the activation function. In both cases, the neuron would be just a linear model, nothing more.
 
 Consequently, without an activation function, no matter how many neurons are stacked upon one another in how many layers, the neural network too would be linear in its expressive power or capability.
 
-So, an Activation Function is more `an opportunity to introduce non-linearity, into an AN's capability or expressive power, upon the initial Linear Weighted Sum Transformation` than anything else.
+So, the Activation Function is more `an opportunity to introduce non-linearity, into an AN's capability or expressive power, upon the initial Linear Weighted Sum Transformation` than anything else.
 
-A perceptron, using the Step Function as its Activation Function, barely uses this opportunity of `Non-Linearity'. It uses this opportunity more to become a Binary Classifier, upon the Linear Weighted Sum Function $WS_{\vec{W}, b}(\vec{X}) \equiv \vec{W}\cdot \vec{X} + b$, with $WS_{\vec{W}, b}(\vec{X}) = 0$ as its decision boundary, succeeding only on Linearly Separable Datasets. Also, as the range of the step function is not continuous, but discrete with hard steps, it lacks probabilistic classification.
+A perceptron, using the Step Function as its Activation Function, barely uses this opportunity of `Non-Linearity'. It uses this opportunity more to become a Binary Classifier, upon the Linear Weighted Sum Function $`WS_{\vec{W}, b}(\vec{X}) \equiv \vec{W}\cdot \vec{X} + b`$, with $`WS_{\vec{W}, b}(\vec{X}) = 0`$ as its decision boundary, succeeding only on Linearly Separable Datasets. Also, as the range of the step function is not continuous, but discrete with hard steps, it lacks probabilistic classification.
 
 
 So, why does an standard AN need an activation function? To modify the output of the Linear Weighted Sum Function, before the AN outputs.

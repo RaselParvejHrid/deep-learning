@@ -1,0 +1,1 @@
+This folder will contain my notes and solution to `Practice Problems` and `Coding Projects`, assigned to me by ChatGPT.
