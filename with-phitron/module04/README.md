@@ -119,10 +119,10 @@ Then, according the Gradient Descent Optimization, the Perceptron Learning Rule 
     <th colspan="2">Activation Function</th>
   </tr>
   <tr>
-    <td> <!-- markdown-math-utilities-ignore -->$$a_{0,1}(z) \equiv \begin{cases} 1, & \text{, if}\; z \geq 0 \\ 0, &\text{, if}\; z < 0\end{cases}
+    <td> <!-- markdown-math-utilities-ignore -->$$a_{0,1}(z) \equiv \begin{cases} 1, & \text{, if}\; z \geq 0 \\\\ 0, &\text{, if}\; z < 0\end{cases}
 $$
     </td>
-    <td><!-- markdown-math-utilities-ignore -->$$a_{\pm 1}(z) \equiv \begin{cases} 1, & \text{if}\; z \geq 0 \\-1, &\text{if}\; z < 0\end{cases}
+    <td><!-- markdown-math-utilities-ignore -->$$a_{\pm 1}(z) \equiv \begin{cases} 1, & \text{if}\; z \geq 0 \\\\-1, &\text{if}\; z < 0\end{cases}
 $$</td>
   </tr>
   <tr>
@@ -132,9 +132,9 @@ $$</td>
   </tr>
   <tr>
     <th>Learning Rule</th>
-    <td><!-- markdown-math-utilities-ignore -->$$\begin{aligned}w_{\text{new}} &= w_{\text{old}} - \eta \left( y- \hat{y} \right)x \\ \\ b_{\text{new}} &= b_{\text{old}} - \eta \left( y- \hat{y} \right) \end{aligned}$$</td>
+    <td><!-- markdown-math-utilities-ignore -->$$\begin{aligned}w_{\text{new}} &= w_{\text{old}} - \eta \left( y- \hat{y} \right)x \\\\\ \\\\ b_{\text{new}} &= b_{\text{old}} - \eta \left( y- \hat{y} \right) \end{aligned}$$</td>
     <td><!-- markdown-math-utilities-ignore -->$$\begin{aligned}
-        w_{\text{new}} &= w_{\text{old}} - \eta yx \\ \\ b_{\text{new}} &= b_{\text{old}} - \eta y \end{aligned}$$</td>
+        w_{\text{new}} &= w_{\text{old}} - \eta yx \\\\ \\\\ b_{\text{new}} &= b_{\text{old}} - \eta y \end{aligned}$$</td>
   </tr>
 </table>
 
