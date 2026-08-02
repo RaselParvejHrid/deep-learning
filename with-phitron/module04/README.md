@@ -129,13 +129,13 @@ Then, according the Gradient Descent Optimization, the Perceptron Learning Rule 
   </tr>
   <tr>
     <th rowspan="2">Learning Rule</th>
-    <td><!-- markdown-math-utilities-ignore -->$w_{\text{new}} = w_{\text{old}} - \eta \left( y- \hat{y} \right)x$</td>
-    <td><!-- markdown-math-utilities-ignore -->$w_{\text{new}} = w_{\text{old}} - \eta yx$</td>
+    <td><!-- markdown-math-utilities-ignore -->$$w_{\text{new}} = w_{\text{old}} - \eta \left( y- \hat{y} \right)x$$</td>
+    <td><!-- markdown-math-utilities-ignore -->$$w_{\text{new}} = w_{\text{old}} - \eta yx$$</td>
     
   </tr>
   <tr>    
-    <td><!-- markdown-math-utilities-ignore -->$b_{\text{new}} = b_{\text{old}} - \eta\left( y - \hat{y} \right)$</td>
-        <td><!-- markdown-math-utilities-ignore -->$b_{\text{new}} = b_{\text{old}} - \eta y$</td>
+    <td><!-- markdown-math-utilities-ignore -->$$b_{\text{new}} = b_{\text{old}} - \eta\left( y - \hat{y} \right)$$</td>
+        <td><!-- markdown-math-utilities-ignore -->$$b_{\text{new}} = b_{\text{old}} - \eta y$$</td>
   </tr>
 </table>
 
