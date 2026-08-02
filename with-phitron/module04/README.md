@@ -146,9 +146,7 @@ So, that's how our choice of class labels for Perceptron affetcts both Loss Func
 
 Yes, `by subtracting the gradient` of the **Loss Function**.
 
-In the special case of Perceptron, with $a_{\pm 1}(z) \equiv \begin{cases}
-            1, & \text{if}\; z \geq 0 \\\\
-            -1, &\text{if}\; z < 0\end{cases}$, as the activation function, a standard loss function is
+In the special case of Perceptron, with $a_{\pm 1}(z)$, as the activation function, a standard loss function is
 ```math
 L_{W, b}(x) \equiv \max(0, -yz).
 ```
