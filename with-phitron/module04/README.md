@@ -119,8 +119,8 @@ Then, according the Gradient Descent Optimization, the Perceptron Learning Rule 
     <th colspan="2">Activation Function</th>
   </tr>
   <tr> 
-    <td> <!-- markdown-math-utilities-ignore -->\\$\\$a_{0,1}(z) \equiv \begin{cases} 1, & \text{, if}\; z \geq 0 \\ 0, &\text{, if}\; z < 0\end{cases}\\$\\$</td>
-    <td> <!-- markdown-math-utilities-ignore -->$$a_{\pm 1}(z) \equiv \begin{cases} 1, & \text{if}\; z \geq 0 \\ -1, &\text{if}\; z < 0\end{cases}$$</td>    
+    <td>$$a_{0,1}(z)$$</td>
+    <td>$$a_{\pm 1}(z)$$</td>    
   </tr>
   <tr>
     <th>Loss Function</th>
