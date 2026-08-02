@@ -5,7 +5,7 @@
 ### Table of Contents<!-- omit in toc -->
 
 - [Q01. Why does the perceptron algorithm use class labels −1 and +1 instead of 0 and 1? Explain how this choice affects the perceptron update rule.](#q01-why-does-the-perceptron-algorithm-use-class-labels-1-and-1-instead-of-0-and-1-explain-how-this-choice-affects-the-perceptron-update-rule)
-- [Q02. Gradient descent usually updates weights by subtracting the gradient. Why does the perceptron update rule add the term $\\eta yx$ instead?](#q02-gradient-descent-usually-updates-weights-by-subtracting-the-gradient-why-does-the-perceptron-update-rule-add-the-term-eta-yx-instead)
+- [Q02. Gradient descent usually updates weights by subtracting the gradient. Why does the perceptron update rule add the term $`\eta yx`$ instead?](#q02-gradient-descent-usually-updates-weights-by-subtracting-the-gradient-why-does-the-perceptron-update-rule-add-the-term-eta-yx-instead)
 - [Q03. Explain in your own words how the perceptron learning rule can be seen as a form of gradient descent. Also mention one limitation of the perceptron loss function.](#q03-explain-in-your-own-words-how-the-perceptron-learning-rule-can-be-seen-as-a-form-of-gradient-descent-also-mention-one-limitation-of-the-perceptron-loss-function)
 
 
@@ -13,7 +13,7 @@
 
 # Q01. Why does the perceptron algorithm use class labels −1 and +1 instead of 0 and 1? Explain how this choice affects the perceptron update rule. 
 
-The question refers to two choices below about Perceptron's Activation Function, both with Weighted Sum, $z \equiv wx + b$.
+The question refers to two choices below about Perceptron's Activation Function, both with Weighted Sum, $`z \equiv wx + b`$.
 
 ```math
 \begin{aligned}
@@ -29,15 +29,15 @@ a_{\pm 1}(z) &\equiv \begin{cases}
 \end{aligned}
 ```
 
-## For $a_{\pm 1}(z)$<!-- omit in toc -->
+## For $`a_{\pm 1}(z)`$<!-- omit in toc -->
 Standard Loss Function is
 ```math
 L_{W, b}(x) \equiv \max(0, -yz)
 ```
 
-In case of Correct Classification, $y$ and $z$ do not disagree in sign $\implies yz \geq 0 \implies -yz \leq 0 \implies L \equiv 0$.
+In case of Correct Classification, $`y`$ and $`z`$ do not disagree in sign $`\implies yz \geq 0 \implies -yz \leq 0 \implies L \equiv 0`$.
 
-In case of Misclassification, $y$ and $z$ disagree in sign $\implies yz < 0 \implies -yz > 0 \implies L \equiv -yz \equiv -y(wx+b)$.
+In case of Misclassification, $`y`$ and $`z`$ disagree in sign $`\implies yz < 0 \implies -yz > 0 \implies L \equiv -yz \equiv -y(wx+b)`$.
 
 Then, according the Gradient Descent Optimization, the Perceptron Learning Rule is
 ```math
@@ -70,19 +70,19 @@ Then, according the Gradient Descent Optimization, the Perceptron Learning Rule 
 \end{aligned}
 ```
 
-## For $a_{0, 1}(z)$<!-- omit in toc -->
+## For $`a_{0, 1}(z)`$<!-- omit in toc -->
 A standard Loss Function is
 ```math
 L_{W, b}(x) \equiv \left( y- \hat{y} \right)z
 ```
 
-In case of Correct Classification, $\left( y- \hat{y} \right) = 0 \implies L \equiv 0$. In this case, either Gradient Ascent or Gradient Descent is fine.
+In case of Correct Classification, $`\left( y- \hat{y} \right) = 0 \implies L \equiv 0`$. In this case, either Gradient Ascent or Gradient Descent is fine.
 
-In case of Misclassification, $\left( y - \hat{y} \right) \neq 0$ and $L \equiv \left( y- \hat{y} \right)z \equiv \left( y- \hat{y} \right)(wx+b)$.
+In case of Misclassification, $`\left( y - \hat{y} \right) \neq 0`$ and $`L \equiv \left( y- \hat{y} \right)z \equiv \left( y- \hat{y} \right)(wx+b)`$.
 
-For False Positive Misclassification, $y-\hat{y}=0-1=-1 \implies L < 0$. This case need Gradient Ascent.
+For False Positive Misclassification, $`y-\hat{y}=0-1=-1 \implies L < 0`$. This case need Gradient Ascent.
 
-For False Negative Misclassification, $y-\hat{y}=1-0=1 \implies L < 0$. This case too need Gradient Ascent.
+For False Negative Misclassification, $`y-\hat{y}=1-0=1 \implies L < 0`$. This case too need Gradient Ascent.
 
 Then, according the Gradient Ascent Optimization, the Perceptron Learning Rule is
 ```math
@@ -146,11 +146,11 @@ Then, according the Gradient Ascent Optimization, the Perceptron Learning Rule i
 So, that's how our choice of class labels for Perceptron affetcts both Loss Function and Learning Rule.
 
 
-# Q02. Gradient descent usually updates weights by subtracting the gradient. Why does the perceptron update rule add the term $\eta yx$ instead? 
+# Q02. Gradient descent usually updates weights by subtracting the gradient. Why does the perceptron update rule add the term $`\eta yx`$ instead? 
 
 Yes, `by subtracting the gradient` of the **Loss Function**.
 
-In the special case of Perceptron, with $a_{\pm 1}(z)$ as the activation function, a standard loss function is
+In the special case of Perceptron, with $`a_{\pm 1}(z)`$ as the activation function, a standard loss function is
 ```math
 L_{W, b}(x) \equiv \max(0, -yz).
 ```
@@ -163,7 +163,7 @@ Its gradients are
 \end{aligned}
 ```
 
-That's why the Perceptron, using Gradient Descent Optimization in its own special case, updates its `Weights` and `Bias` with a term with $y$ and $x$ as factors, and also $\eta$, as generally suggested by Gradient Descent.
+That's why the Perceptron, using Gradient Descent Optimization in its own special case, updates its `Weights` and `Bias` with a term with $`y`$ and $`x`$ as factors, and also $`\eta`$, as generally suggested by Gradient Descent.
       
 # Q03. Explain in your own words how the perceptron learning rule can be seen as a form of gradient descent. Also mention one limitation of the perceptron loss function.
 
