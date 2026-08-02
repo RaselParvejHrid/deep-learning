@@ -121,7 +121,7 @@ Then, according the Gradient Descent Optimization, the Perceptron Learning Rule 
   <tr>
     <td> <!-- markdown-math-utilities-ignore -->$a_{0,1}(z) \equiv \begin{cases} 1, & \text{, if}\; z \geq 0 \\\\ 0, &\text{, if}\; z < 0\end{cases}$</td>
     <td>
-    <!-- markdown-math-utilities-ignore -->$a_{\pm 1}(z) \equiv \begin{cases} 1, & \text{if}\; z \geq 0 \\\\-1, &\text{if}\; z < 0\end{cases}$
+    <!-- markdown-math-utilities-ignore -->$$a_{\pm 1}(z) \equiv \begin{cases} 1, & \text{if}\; z \geq 0 \\\\-1, &\text{if}\; z < 0\end{cases}$$
     </td>
   </tr>
   <tr>
