@@ -130,10 +130,14 @@ $$</td>
     <td><!-- markdown-math-utilities-ignore -->$$L_{W, b}(x)\equiv \max(0, -yz)$$</td>
   </tr>
   <tr>
-    <th>Learning Rule</th>
-    <td><!-- markdown-math-utilities-ignore -->$`\begin{aligned}w_{\text{new}} &= w_{\text{old}} - \eta \left( y- \hat{y} \right)x \\ b_{\text{new}} &= b_{\text{old}} - \eta \left( y- \hat{y} \right) \end{aligned}`$</td>
-    <td><!-- markdown-math-utilities-ignore -->$`\begin{aligned}
-        w_{\text{new}} &= w_{\text{old}} - \eta yx \\ b_{\text{new}} &= b_{\text{old}} - \eta y \end{aligned}`$</td>
+    <th rowspan="2">Learning Rule</th>
+    <td><!-- markdown-math-utilities-ignore -->$w_{\text{new}} = w_{\text{old}} - \eta \left( y- \hat{y} \right)x$</td>
+    <td><!-- markdown-math-utilities-ignore -->$w_{\text{new}} = w_{\text{old}} - \eta yx$</td>
+    
+  </tr>
+  <tr>    
+    <td><!-- markdown-math-utilities-ignore -->$b_{\text{new}} = b_{\text{old}} - \eta\left( y - \hat{y} \right)$</td>
+        <td><!-- markdown-math-utilities-ignore -->$b_{\text{new}} = b_{\text{old}} - \eta y$</td>
   </tr>
 </table>
 
