@@ -11,7 +11,7 @@
 
 
 
-### Q01. Why does the perceptron algorithm use class labels −1 and +1 instead of 0 and 1? Explain how this choice affects the perceptron update rule. 
+# Q01. Why does the perceptron algorithm use class labels −1 and +1 instead of 0 and 1? Explain how this choice affects the perceptron update rule. 
 
 The question refers to two choices below about Perceptron's Activation Function, both with Weighted Sum, $`z \equiv wx + b`$.
 
@@ -29,7 +29,7 @@ a_{\pm 1}(z) &\equiv \begin{cases}
 \end{aligned}
 ```
 
-#### For $`a_{\pm 1}(z)`$<!-- omit in toc -->
+## For $`a_{\pm 1}(z)`$<!-- omit in toc -->
 Standard Loss Function is
 ```math
 L_{W, b}(x) \equiv \max(0, -yz)
@@ -70,7 +70,7 @@ Then, according the Gradient Descent Optimization, the Perceptron Learning Rule 
 \end{aligned}
 ```
 
-#### For $`a_{0, 1}(z)`$<!-- omit in toc -->
+## For $`a_{0, 1}(z)`$<!-- omit in toc -->
 A standard Loss Function is
 ```math
 L_{W, b}(x) \equiv \left( y- \hat{y} \right)z
@@ -111,7 +111,7 @@ Then, according the Gradient Descent Optimization, the Perceptron Learning Rule 
 \end{aligned}
 ```
 
-#### Comparison<!-- omit in toc -->
+## Comparison<!-- omit in toc -->
 
 <table>
   <tr>
@@ -142,11 +142,11 @@ Then, according the Gradient Descent Optimization, the Perceptron Learning Rule 
 So, that's how our choice of class labels for Perceptron affetcts both Loss Function and Learning Rule.
 
 
-### Q02. Gradient descent usually updates weights by subtracting the gradient. Why does the perceptron update rule add the term $`\eta yx`$ instead? 
+# Q02. Gradient descent usually updates weights by subtracting the gradient. Why does the perceptron update rule add the term $`\eta yx`$ instead? 
 
 Yes, `by subtracting the gradient` of the **Loss Function**.
 
-In the special case of Perceptron, with $a_{\pm 1}(z)$, as the activation function, a standard loss function is
+In the special case of Perceptron, with $a_{\pm 1}(z)$ as the activation function, a standard loss function is
 ```math
 L_{W, b}(x) \equiv \max(0, -yz).
 ```
@@ -161,6 +161,6 @@ Its gradients are
 
 That's why the Perceptron, using Gradient Descent Optimization in its own special case, updates its `Weights` and `Bias` with a term with $`y`$ and $`x`$ as factors, and also $`\eta`$, as generally suggested by Gradient Descent.
       
-### Q03. Explain in your own words how the perceptron learning rule can be seen as a form of gradient descent. Also mention one limitation of the perceptron loss function.
+# Q03. Explain in your own words how the perceptron learning rule can be seen as a form of gradient descent. Also mention one limitation of the perceptron loss function.
 
 Perceptron Learning Rule, is not an equivalent form of Gradient Descent, but an special form of Gradient Descent. Perceptron Learning Rule is derived applying the General `Gradient Descent Optimization Algorithm` on the special case of perceptron. See [the Derivation](#q01-why-does-the-perceptron-algorithm-use-class-labels-1-and-1-instead-of-0-and-1-explain-how-this-choice-affects-the-perceptron-update-rule).
