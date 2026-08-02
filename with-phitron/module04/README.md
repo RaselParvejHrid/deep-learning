@@ -21,7 +21,7 @@
 
 The question refers to two choices below about Perceptron's Activation Function, both with Weighted Sum, $`z \equiv wx + b`$.
 
-$$
+$$`
 \begin{aligned}
 
 a_{0,1}(z) &\equiv \begin{cases}
@@ -32,7 +32,7 @@ a_{\pm 1}(z) &\equiv \begin{cases}
 1, & \text{if}\; z \geq 0 \\
 -1, &\text{if}\; z < 0\end{cases}
 
-\end{aligned}
+\end{aligned}`
 $$
 
 #### For $`a_{\pm 1}(z)`$
