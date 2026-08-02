@@ -131,7 +131,7 @@ $$</td>
   </tr>
   <tr>
     <th>Learning Rule</th>
-    <td><!-- markdown-math-utilities-ignore -->$$\begin{aligned}w_{\text{new}} &= w_{\text{old}} - \eta \left( y- \hat{y} \right)x \\\\\ \\\\ b_{\text{new}} &= b_{\text{old}} - \eta \left( y- \hat{y} \right) \end{aligned}$$</td>
+    <td><!-- markdown-math-utilities-ignore -->$\begin{aligned}w_{\text{new}} &= w_{\text{old}} - \eta \left( y- \hat{y} \right)x \\\\\ \\\\ b_{\text{new}} &= b_{\text{old}} - \eta \left( y- \hat{y} \right) \end{aligned}$</td>
     <td><!-- markdown-math-utilities-ignore -->$$\begin{aligned}
         w_{\text{new}} &= w_{\text{old}} - \eta yx \\\\ \\\\ b_{\text{new}} &= b_{\text{old}} - \eta y \end{aligned}$$</td>
   </tr>
