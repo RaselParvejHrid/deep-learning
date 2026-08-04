@@ -67,8 +67,8 @@ During training,
 In Linear Regression, a data point that is not on the line has error associated with the model's prediction on it, no matter which side of the line the point lies, captured by `squaring` in MSE. Only, the farther it is from the line, the larger is the cost induced by the error, which is too captured by MSE.
 
 In Binary Classification, the expection from Loss Function is different.
-- In Linear Regression, the farther a data point is from the line, the more we **punish** the model. On contraru, in Binary Classification, the farther a data point with correct prediction is from the line, the more we **reward** it for confidence in prediction. The sigmoid function expresses this confidence probabilistically.
-- In Linear Regression, we do not care which side of the line a data point lies. But in Binary Classification, we do— both `which side` and `how far`. Two sides is captured by two terms in `BCE Loss`, one term of each side. And with probabilistic prediction, `how far` is captured by $`\log`$ function and the minus sign.
+- In Linear Regression, the farther a data point is from the line, the more we **punish** the model. On contrary, in Binary Classification, the farther a data point with correct prediction is from the line, the more we **reward** it for confidence in prediction. The sigmoid function expresses this confidence probabilistically.
+- In Linear Regression, we do not care which side of the line a data point liesm by we reward `how close`. But in Binary Classification, we do— both `which side` and `how far`. Two sides is captured by two terms in `BCE Loss`, one term of each side. And with probabilistic prediction, `how far` is captured by $`\log`$ function and the minus sign.
 
 So, among `MSE` and `Binary Cross-Entropy`, for Binary Classification, `Binary Cross-Entropy` is not `preferred`, but the ***only right choice***— and this right choice demands `Sigmoid Function` with it.
 
