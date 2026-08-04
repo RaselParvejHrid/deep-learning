@@ -67,7 +67,6 @@ During training,
 In Linear Regression, a data point that is not on the line has error associated with the model's prediction on it, no matter which side of the line the point lies, captured by `squaring` in MSE. Only, the farther it is from the line, the larger is the cost induced by the error, which is too captured by MSE.
 
 In Binary Classification, the expection from Loss Function is different.
-- It does not matter, unlike in Linear Regression, how far a data point is from the line, when the prediction is correct, the error must be $`0`$— this requirement is met by `MSE` for deterministic prediction, but not for probabilistic prediction.
 - In Linear Regression, the farther a data point is from the line, the more we **punish** the model. On contraru, in Binary Classification, the farther a data point with correct prediction is from the line, the more we **reward** it for confidence in prediction. The sigmoid function expresses this confidence probabilistically.
 - In Linear Regression, we do not care which side of the line a data point lies. But in Binary Classification, we do— both `which side` and `how far`. Two sides is captured by two terms in `BCE Loss`, one term of each side. And with probabilistic prediction, `how far` is captured by $`\log`$ function and the minus sign.
 
