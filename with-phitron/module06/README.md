@@ -8,32 +8,29 @@
 - [Q02. What kind of decision boundary does an MLP create?](#q02-what-kind-of-decision-boundary-does-an-mlp-create)
 - [Q03. What are the main components of a neural network?](#q03-what-are-the-main-components-of-a-neural-network)
 - [Q04. What is the difference between input layer, hidden layer, and output layer?](#q04-what-is-the-difference-between-input-layer-hidden-layer-and-output-layer)
-  - [Input Layer](#input-layer)
-  - [Hidden Layer](#hidden-layer)
-  - [Output Layer](#output-layer)
-  - [Summary](#summary)
 - [Q05. What is forward propagation?](#q05-what-is-forward-propagation)
 
 
 
 ### Q01. What happens if we stack multiple linear layers without activation?
 
-Without (non-linear) activation functions, the output of a linear neuron is $\hat{y} \equiv \vec{W} \cdot \vec{x} + b$, where $\vec{W} \equiv \left[ w_i \right]$ is the row vector of weights and $x \equiv \left[ x_i \right]$ is the input sample, that is, the column vector of features values. So, without (non-linear) activation functions, the output of a linear layer is:
-$$
+Without (non-linear) activation functions, the output of a linear neuron is $`\hat{y} \equiv \vec{W} \cdot \vec{x} + b`$, where $`\vec{W} \equiv \left[ w_i \right]`$ is the row vector of weights and $`x \equiv \left[ x_i \right]`$ is the input sample, that is, the column vector of features values. So, without (non-linear) activation functions, the output of a linear layer is:
+```math
 \vec{O}^{(l)} \equiv \vec{W}^{(l)} \text{ } \vec{O}^{(l-1)}+\vec{B}^{(l)}
-$$, where, with $m$ denoting the number of input samples, $n^{(l)}$ denoting the width of Layer $l$, that is, the number of neurons in Layer $l$, and $\vec{O}^{(0)} \equiv \vec{X} \equiv \Big[ \left[ x_{ik} \right]_{k=1}^{k=m} \Big]_{i=1}^{i=n^{(0)}}$ denoting the row vector of the column input samples,
+```
+, where, with $`m`$ denoting the number of input samples, $`n^{(l)}`$ denoting the width of Layer $`l`$, that is, the number of neurons in Layer $`l`$, and $`\vec{O}^{(0)} \equiv \vec{X} \equiv \Big[ \left[ x_{ik} \right]_{k=1}^{k=m} \Big]_{i=1}^{i=n^{(0)}}`$ denoting the row vector of the column input samples,
 
-$$
-    \begin{aligned}
+```math
+\begin{aligned}
         \vec{O}^{(l)} &\equiv \Big[ o_{\text{i}} \Big]_{i=1}^{i=n^{(l)}} \text{ is the column vector of outputs of the neurons in this layer.}\\
         \vec{W}^{(l)} &\equiv \Big[ \left[ w_{ij} \right]_{j=1}^{j=n^{(l-1)}} \Big]_{i=1}^{i=n^{(l)}} \text{ is the column vector of the row weight vectors of the neurons in this layer.}\\
         \vec{O}^{(l-1)} &\equiv \Big[ o_{\text{j}} \Big]_{j=1}^{j=n^{(l-1)}} \text{ is the column vector of outputs of the neurons in the previous layer.}\\
         \vec{B}^{(l)} &\equiv \Big[ b_{\text{i}} \Big]_{i=1}^{i=n^{(l)}} \text{ is the column vector of biases of the neurons in this layer.}\\
     \end{aligned}
-$$
+```
 
 When stack a linear layer over another linear layer,
-$$
+```math
 \begin{aligned}
     \vec{O}^{(1)} &\equiv \vec{W}^{(1)} \text{ } \vec{O}^{(0)}+\vec{B}^{(1)} \\
     & \equiv \vec{W}^{(1)} \text{ } \vec{X} + \vec{B}^{(1)} \\
@@ -42,15 +39,15 @@ $$
     & \equiv \vec{W}^{(2)} \left( \vec{W}^{(1)} \text{ } \vec{X} + \vec{B}^{(1)} \right) + \vec{B}^{(2)} \\
     & \equiv \underline{\vec{W}^{(2)} \vec{W}^{(1)}} \text{ } \vec{X} + \underline{\vec{W}^{(2)} \vec{B}^{(1)} + \vec{B}^{(2)}}, \\
     &\text{which is still a linear transformation of } \vec{X},\\
-    & \text{as the underlined parts are constant.}
+    & \text{as the underlined parts are constants.}
 \end{aligned}
-$$
+```
 
 
-More generally, for a $n$-layer stack of linear layers,
-$$
+More generally, for a $`n`$-layer stack of linear layers,
+```math
 \vec{O}^{(l)} \equiv \underline{ \vec{W}^{(l)} \vec{W}^{(l-1)} \cdots \cdots \cdots \vec{W}^{(1)} } \vec{X} + \underline{\sum_{i=1}^{i=l} \Big( \big( \prod_{j=i+1}^{j=l} \vec{W}^{(j)} \big) \vec{B}^{(i)} \Big) }
-$$
+```
 
 Again, just a linear tranformation, so replacable by a single linear neuron. A stack of linear layers collapse into a single linear neuron. Without non-linear activation function, the depth of a network does not add any expressive power, still linear in capability.
 
@@ -133,7 +130,7 @@ In One Sentence,
 
 ### Q04. What is the difference between input layer, hidden layer, and output layer?
 
-#### Input Layer
+#### Input Layer <!-- omit in toc -->
 
 - Receives the raw input data.
 - Does **not** perform meaningful computation.
@@ -144,7 +141,7 @@ In One Sentence,
 If each image is represented by 784 pixel values, the input layer has **784 neurons**.
 
 
-#### Hidden Layer
+#### Hidden Layer <!-- omit in toc -->
 
 - Performs computations on the input.
 - Learns intermediate features and patterns.
@@ -156,7 +153,7 @@ A hidden layer might learn edges, shapes, textures, or higher-level concepts fro
 
 
 
-#### Output Layer
+#### Output Layer <!-- omit in toc -->
 
 - Produces the final prediction.
 - Its structure depends on the task.
@@ -166,7 +163,7 @@ Examples:
 - **Binary Classification:** 1 sigmoid neuron
 - **Multiclass Classification:** One softmax neuron per class
 
-#### Summary
+#### Summary <!-- omit in toc -->
 
 | Layer            | Purpose                             | Learns? |
 | ---------------- | ----------------------------------- | ------- |
