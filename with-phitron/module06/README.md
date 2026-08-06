@@ -39,7 +39,7 @@ When stack a linear layer over another linear layer,
     & \equiv \vec{W}^{(2)} \left( \vec{W}^{(1)} \text{ } \vec{X} + \vec{B}^{(1)} \right) + \vec{B}^{(2)} \\
     & \equiv \underline{\vec{W}^{(2)} \vec{W}^{(1)}} \text{ } \vec{X} + \underline{\vec{W}^{(2)} \vec{B}^{(1)} + \vec{B}^{(2)}}, \\
     &\text{which is still a linear transformation of } \vec{X},\\
-    & \text{as the underlined parts are constants.}
+    & \text{as the underlined parts (parts excluding the vector X) are constants.}
 \end{aligned}
 ```
 
