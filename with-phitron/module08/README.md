@@ -36,22 +36,15 @@ Complete the following tasks:
    * Define a suitable loss function, such as **Mean Squared Error (MSE)**.
    * Calculate the loss for the chosen training example.
 
-5. **Derive the Gradients**
+5. **Perform the Complete Backward Pass and Compute All Gradients**
 
-   * Manually derive all gradients using the **backpropagation algorithm**.
-   * Show the mathematical derivation clearly.
+- Derive the backpropagation equations using the chain rule.
+- Propagate the error from the output layer backward through all three hidden layers.
+- Compute the gradient for every weight and bias.
+- Show the resulting gradient matrices and vectors.
+- Clearly explain the mathematical reasoning at each layer.
 
-6. **Compute Gradients for All Parameters**
-
-   * Compute the gradients for every weight and bias in every layer.
-   * Clearly show the resulting gradient matrices and vectors.
-
-7. **Perform the Complete Backward Pass**
-
-   * Show how the error propagates from the output layer back through all three hidden layers.
-   * Explain the role of the chain rule at each step.
-
-8. **Perform One Parameter Update**
+6. **Perform One Parameter Update**
 
    * Choose a suitable learning rate.
    * Perform one complete **gradient descent** update.
@@ -112,6 +105,7 @@ $$
 $$
 A^{(1)} \equiv \text{ReLU}({Z^{(1)}})
 $$
+
 
 #### Hidden Layer 2
 
@@ -222,18 +216,21 @@ $$
 \hat{Y} \equiv A^{(4)} \equiv \sigma({Z^{(4)}})
 $$
 
+
+
 ### TASK 02. Initialize the Parameters
+
 
 #### Hidden Layer 1
 $$
 \begin{aligned}
    W^{(1)} &= \begin{bmatrix}
-      0.1 &0.1 &0.1 \\
-      0.1 &0.1 &0.1 \\
+      0.1 &0.2 &0.3 \\
+      0.1 &0.2 &0.3 \\
    \end{bmatrix}
    \\ \\
    B^{(1)} &= \begin{bmatrix}
-      0.1 \\ 0.1
+      0.1 \\ 0.2
    \end{bmatrix}
 \end{aligned}
 $$
@@ -242,13 +239,13 @@ $$
 $$
 \begin{aligned}
    W^{(2)} &= \begin{bmatrix}
-      0.1 &0.1 \\
-      0.1 &0.1 \\
-      0.1 &0.1
+      0.1 &0.2 \\
+      0.1 &0.2 \\
+      0.1 &0.2
    \end{bmatrix}
    \\ \\
    B^{(2)} &= \begin{bmatrix}
-      0.1 \\ 0.1 \\ 0.1
+      0.1 \\ 0.2 \\ 0.3
    \end{bmatrix}
 \end{aligned}
 $$
@@ -256,12 +253,12 @@ $$
 $$
 \begin{aligned}
    W^{(3)} &= \begin{bmatrix}
-      0.1 &0.1 &0.1 \\
-      0.1 &0.1 &0.1 \\
+      0.1 &0.2 &0.3 \\
+      0.1 &0.2 &0.3 \\
    \end{bmatrix}
    \\ \\
    B^{(3)} &= \begin{bmatrix}
-      0.1 \\ 0.1
+      0.1 \\ 0.2
    \end{bmatrix}
 \end{aligned}
 $$
@@ -270,7 +267,7 @@ $$
 $$
 \begin{aligned}
    W^{(4)} &= \begin{bmatrix}
-      0.1 &0.1
+      0.1 &0.2
    \end{bmatrix}
    \\ \\
    B^{(4)} &= \begin{bmatrix}
@@ -293,26 +290,26 @@ $$
 \begin{aligned}
    Z^{(1)} &\equiv W^{(1)} x + B^{(1)} \\
    &= \begin{bmatrix}
-               0.1 &0.1 &0.1 \\
-               0.1 &0.1 &0.1
+               0.1 &0.2 &0.3 \\
+               0.1 &0.2 &0.3
             \end{bmatrix} 
             \begin{bmatrix}
                1 \\ 1 \\ 1
             \end{bmatrix}
             +
             \begin{bmatrix}
-               0.1 \\ 0.1
+               0.1 \\ 0.2
             \end{bmatrix} \\
    &= \begin{bmatrix}
-               0.4 \\ 0.4
+               0.7 \\ 0.8
             \end{bmatrix} \\ \\
    
    A^{(1)} &\equiv \text{ReLU}(Z^{(1)}) \\
    &= \text{ReLU}\Big(\begin{bmatrix}
-               0.4 \\ 0.4
+               0.7 \\ 0.8
             \end{bmatrix}\Big) \\
    &= \begin{bmatrix}
-               0.4 \\ 0.4
+               0.7 \\ 0.8
             \end{bmatrix}
 \end{aligned}
 $$
@@ -323,28 +320,28 @@ $$
 \begin{aligned}
    Z^{(2)} &\equiv W^{(2)} A^{(1)} + B^{(2)} \\
    &= \begin{bmatrix}
-               0.1 &0.1 \\
-               0.1 &0.1 \\
-               0.1 &0.1
+               0.1 &0.2 \\
+               0.1 &0.2 \\
+               0.1 &0.2
             \end{bmatrix} 
             \begin{bmatrix}
-               0.4 \\ 0.4
+               0.7 \\ 0.8
             \end{bmatrix}
             +
             \begin{bmatrix}
-               0.1 \\ 0.1 \\ 0.1
+               0.1 \\ 0.2 \\ 0.3
             \end{bmatrix} \\
    &= \begin{bmatrix}
-               0.18 \\ 0.18 \\ 0.18
+               0.33 \\ 0.43 \\ 0.53
             \end{bmatrix} \\ \\
    
    A^{(2)} &\equiv \text{ReLU}(Z^{(2)}) \\
    &= \text{ReLU}\Big(\begin{bmatrix}
-               0.18 \\ 0.18 \\ 0.18
+               0.33 \\ 0.43 \\ 0.53
             \end{bmatrix}\Big) \\
    
    &= \begin{bmatrix}
-              0.18 \\ 0.18 \\ 0.18
+              0.33 \\ 0.43 \\ 0.53
             \end{bmatrix}
 \end{aligned}
 $$
@@ -355,27 +352,27 @@ $$
 \begin{aligned}
    Z^{(3)} &\equiv W^{(3)} A^{(2)} + B^{(3)} \\
    &= \begin{bmatrix}
-               0.1 &0.1 &0.1 \\
-               0.1 &0.1 &0.1 \\
+               0.1 &0.2 &0.3 \\
+               0.1 &0.2 &0.3 \\
             \end{bmatrix} 
             \begin{bmatrix}
-               0.18 \\ 0.18 \\ 0.18
+               0.33 \\ 0.43 \\ 0.53
             \end{bmatrix}
             +
             \begin{bmatrix}
-               0.1 \\ 0.1
+               0.1 \\ 0.2
             \end{bmatrix} \\
    &= \begin{bmatrix}
-               0.154 \\ 0.154
+               0.378 \\ 0.478
             \end{bmatrix} \\ \\
    
    A^{(3)} &\equiv \text{ReLU}(Z^{(3)}) \\
    &= \text{ReLU}\Big(\begin{bmatrix}
-               0.154 \\ 0.154
+               0.378 \\ 0.478
             \end{bmatrix}\Big) \\
    
    &= \begin{bmatrix}
-               0.154 \\ 0.154
+               0.378 \\ 0.478
             \end{bmatrix}
 \end{aligned}
 $$
@@ -386,26 +383,26 @@ $$
 \begin{aligned}
    Z^{(4)} &\equiv W^{(4)} A^{(3)} + B^{(4)} \\
    &= \begin{bmatrix}
-               0.1 &0.1 \\
+               0.1 &0.2 \\
             \end{bmatrix} 
             \begin{bmatrix}
-               0.154 \\ 0.154
+               0.378 \\ 0.478
             \end{bmatrix}
             +
             \begin{bmatrix}
                0.1
             \end{bmatrix} \\
    &= \begin{bmatrix}
-               0.1308
+               0.2334
             \end{bmatrix} \\ \\
    
    \hat{Y} \equiv A^{(4)} &\equiv \sigma (Z^{(4)}) \\
    &= \sigma \Big(\begin{bmatrix}
-               0.1308
+               0.2334
             \end{bmatrix}\Big) \\
    
    &\approx \begin{bmatrix}
-               0.533
+               0.558
             \end{bmatrix}
 \end{aligned}
 $$
@@ -422,66 +419,280 @@ $$
 
 #### Calculating the Loss
 
-For my input sample $x$, I will assume my true label is $y = 1$. And from **Forward Pass**, $\hat{y}=0.533$.
+For my input sample $x$, I will assume my true label is $y = 1$. And from **Forward Pass**, $\hat{y}=0.558$.
 
 $$
-L = - 1 \times \log{0.533} = - \log{0.533} \approx 0.273
+L = - 1 \times \log{0.558} = - \log{0.558} \approx 0.253
 $$
 
 
-### TASK 05. Derive the Gradients
+### TASK 05. Perform the Complete Backward Pass and Compute All Gradients
+
+#### Proud Documentation of My Enlightening Exploration
+I belive my mentor wanted me to calculate the gradients of all scalers $w$ and $b$, individually. He aimed for us to understand **what is truly happening** *under the 'magical'* **Autodifferentiation** provided by frameworks.
+
+But, as a Linear Algebra fan, I couldn't resist **Vectorization**, which is a must for efficient implementation of backpropagation.
+
+In my last commit, I started calculating gradients in vectorized approach, keeping the **'scaler' reality** parallelly in my head. Soon, I noticed 'head' is not enough. So, I started scribbling on paper, of which I am proud. I have decided to keep it as a part of this repo. See [pen-paper.pdf](assets/pen-paper.pdf). I truly learned a lot though this.
+
+I also consulted with Gemini. See my chats with Gemini: [Matrix Multiplication Variants Explained](assets/Chat%20with%20Gemini,%20Matrix%20Multiplication%20Variants%20Explained.pdf) and [Vectorized Backpropagation](assets/Chat%20with%20Gemini,%20Vectorized%20Backpropagation%20for%20Neural%20Network.pdf).
+
+Now, I know what is truly happening as well as I have clarity on vectorized formulas. I am happy. I believe my mentor would be too. I am not lazy. I am differently industrious.
+
+#### Summary of My Exploration
+The following summary is tied to my definition of architecture in [TASK 01. Define the Network Architecture](#task-01-define-the-network-architecture).
+
+Let's calculate the derivative of loss $L$ with respect to a (scaler) weight $w^{(l)}_{ij}$, corresponding to the connection between $i$-th neuron of layer $l$ and $j$-th neuron of the previous layer.
+
+$$
+\begin{aligned}
+   \frac{\partial L}{\partial w^{(l)}_{ij}}
+   &= \frac{\partial L}{\partial a^{(l)}_{i}} \cdot
+   \color{green} \frac{\partial a^{(l)}_{i}}{\partial z^{(l)}_{i}} \cdot
+   \color{red} \frac{\partial z^{(l)}_{i}}{\partial w^{(l)}_{ij}}
+   \\
+   &= \left(
+         \sum_{k=1}^{n^{(l+1)}}
+         \left(
+            \color{orange}
+            \frac{\partial L}{\partial z^{(l+1)}_{k}} \color{black} \cdot
+            \color{blue}
+            \frac {\partial z^{(l+1)}_{k}}{\partial a^{(l)}_{i}}
+            \color{black}
+         \right)
+      \right) \cdot
+   \color{green} \frac{\partial a^{(l)}_{i}}{\partial z^{(l)}_{i}} \color{black} \cdot
+   \color{red} \frac{\partial z^{(l)}_{i}}{\partial w^{(l)}_{ij}}
+
+\end{aligned}
+$$
+
+As expressed by 'Back' in '**Back**propagation', we have to combine derivatives from left.
+
+Yes, this is the chain rule for function composition from calculus.
+
+The Sigma ($\sum$) on the 2nd line is because the neuron is connected to each of the neurons in the next layer, which can have more than one neurons.
+
+Let's vectorize them now.
+
+$$
+\begin{aligned}
+   \color{orange}
+   \frac{\partial L}{\partial Z^{(l+1)}}
+   &= \frac{\partial L}
+   {\partial 
+   \begin{bmatrix}
+      z_1^{(l+1)} \\ z_2^{(l+1)} \\ \vdots \\ z_{n^{(l+1)}}^{(l+1)}
+   \end{bmatrix}_{n^{(l+1)} \times 1}
+   }
+   \\ \\
+   &= \begin{bmatrix}
+      \frac{\partial L}{\partial z_1} \\
+      \frac{\partial L}{\partial z_2} \\
+      \vdots \\
+      \frac{\partial L}{\partial z_{n^{(l+1)}}}
+   \end{bmatrix}_{n^{(l+1)} \times 1}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+   \color{blue}
+   \frac{\partial Z^{(l+1)}}{\partial A^{(l)}}
+   &= \frac{\partial 
+   \begin{bmatrix}
+      z_1^{(l+1)} \\ z_2^{(l+1)} \\ \vdots \\ z_{n^{(l+1)}}^{(l+1)}
+   \end{bmatrix}_{n^{(l+1)} \times 1}
+   }
+   {\partial 
+   \begin{bmatrix}
+      a_1^{(l)} \\ a_2^{(l)} \\ \vdots \\ a_{n^{(l)}}^{(l)}
+   \end{bmatrix}_{n^{(l)} \times 1}
+   }
+   \\ \\
+   &= \begin{bmatrix}
+      \frac{\partial z_1^{(l+1)}}{\partial a_1^{(l)}}
+      &\frac{\partial z_1^{(l+1)}}{\partial a_2^{(l)}}
+      &\cdots
+      &\frac{\partial z_1^{(l+1)}}{\partial a_{n^{(l)}}^{(l)}} \\
+      \frac{\partial z_2^{(l+1)}}{\partial a_1^{(l)}}
+      &\frac{\partial z_2^{(l+1)}}{\partial a_2^{(l)}}
+      &\cdots
+      &\frac{\partial z_2^{(l+1)}}{\partial a_{n^{(l)}}^{(l)}} \\
+      \vdots &\vdots &\ddots &\vdots \\
+      \frac{\partial z_{n^{(l+1)}}^{(l+1)}}{\partial a_1^{(l)}}
+      &\frac{\partial z_{n^{(l+1)}}^{(l+1)}}{\partial a_2^{(l)}}
+      &\cdots
+      &\frac{\partial z_{n^{(l+1)}}^{(l+1)}}{\partial a_{n^{(l)}}^{(l)}}
+   \end{bmatrix}_{n^{(l+1)} \times n^{(l)}}
+\\ \\
+&= \begin{bmatrix}
+   w^{(l+1)}_{11} & w^{(l+1)}_{12} &\cdots &w^{(l+1)}_{1, n^{(l)}} \\
+   w^{(l+1)}_{21} & w^{(l+1)}_{22} &\cdots &w^{(l+1)}_{2, n^{(l)}} \\
+   \vdots &\vdots &\ddots &\vdots \\
+   w^{(l+1)}_{n^{(l+1)},1} & w^{(l+1)}_{n^{(l+1)},2} &\cdots &w^{(l+1)}_{n^{(l+1)}, n^{(l)}} \\
+\end{bmatrix}_{n^{(l+1)} \times n^{(l)}}
+\\ \\
+&= W^{(l+1)}_{n^{(l+1)} \times n^{(l)}}
+\end{aligned}
+$$
+
+How do we combine $\color{orange} \frac{\partial L}{\partial Z^{(l+1)}}$ and $\color{blue} \frac{\partial Z^{(l+1)}}{\partial A^{(l)}}$? **We have to combine them with matrix operations in a way that is consistent with the underlying scaler operations**. Such a way is:
+$$
+ \left( \color{blue} \frac{\partial Z^{(l+1)}}{\partial A^{(l)}} \color{black} \right)^T
+ \cdot
+\color{orange} \frac{\partial L}{\partial Z^{(l+1)}}
+$$
+, which gives a matrix of order $n^{(l)} \times 1$. To understand this, keep the orders of the factor matrices in mind, and check if what happens when you multiply is consistent with underlying scaler operations.
+
+$$
+\begin{aligned}
+   \color{green} \frac{\partial A^{(l)}}{\partial Z^{(l)}}
+   &= \frac
+   {\partial
+      \begin{bmatrix}
+         a_1^{(l)} \\ a_2^{(l)} \\ \vdots \\ a_{n^{(l)}}^{(l)}
+      \end{bmatrix}_{n^{(l)} \times 1}
+   }
+   {\partial
+      \begin{bmatrix}
+         z_1^{(l)} \\ z_2^{(l)} \\ \vdots \\ z_{n^{(l)}}^{(l)}
+      \end{bmatrix}_{n^{(l)} \times 1}
+   }
+   \\ \\
+   &= \begin{bmatrix}
+      \frac{\partial a_1^{(l)}}{\partial z_1^{(l)}}
+      &\frac{\partial a_1^{(l)}}{\partial z_2^{(l)}}
+      &\cdots
+      &\frac{\partial a_1^{(l)}}{\partial z_{n^{(l)}}^{(l)}} \\
+      \frac{\partial a_2^{(l)}}{\partial z_1^{(l)}}
+      &\frac{\partial a_2^{(l)}}{\partial z_2^{(l)}}
+      &\cdots
+      &\frac{\partial a_2^{(l)}}{\partial z_{n^{(l)}}^{(l)}} \\
+      \vdots &\vdots &\ddots &\vdots \\
+      \frac{\partial a_{n^{(l)}}^{(l)}}{\partial z_1^{(l)}}
+      &\frac{\partial a_{n^{(l)}}^{(l)}}{\partial z_2^{(l)}}
+      &\cdots
+      &\frac{\partial a_{n^{(l)}}^{(l)}}{\partial z_{n^{(l)}}^{(l)}} \\
+   \end{bmatrix}_{n^{(l)} \times n^{(l)}}
+   \\ \\
+   &= \begin{bmatrix}
+      \frac{\partial a_1^{(l)}}{\partial z_1^{(l)}}
+      &0
+      &\cdots
+      &0 \\
+      0
+      &\frac{\partial a_2^{(l)}}{\partial z_2^{(l)}}
+      &\cdots
+      &0 \\
+      \vdots &\vdots &\ddots &\vdots \\
+      0
+      &0
+      &\cdots
+      &\frac{\partial a_{n^{(l)}}^{(l)}}{\partial z_{n^{(l)}}^{(l)}} \\
+   \end{bmatrix}_{n^{(l)} \times n^{(l)}}
+\end{aligned}
+$$
+, which is a diagonal matrix. We can combine it with incoming gradient this way:
+
+$$
+ \left( \color{blue} \frac{\partial Z^{(l+1)}}{\partial A^{(l)}} \color{black} \right)^T
+ \cdot
+\color{orange} \frac{\partial L}{\partial Z^{(l+1)}}
+\color{black} \odot 
+\text{diag} \left( \color{green} \frac{\partial A^{(l)}}{\partial Z^{(l)}} \color{black} \right)
+$$
+
+Yes, $\odot$ denotes point-wise multiplication of matrices, that is, **Hadamard Multiplication**. And, **diag(A)** is the diagonal vector of a diagonal matrix **A**. This combination give a matrix of order $n^{(l)} \times 1$.
+
+
+$$
+\begin{aligned}
+   \color{red} \frac{\partial Z^{(l)}}{\partial W^{(l)}}
+   &= \frac
+   {\partial
+      \begin{bmatrix}
+        z^{{(l)}}_1 \\ z^{{(l)}}_2 \\ \vdots \\ z^{{(l)}}_{n^{(l)}}
+      \end{bmatrix}_{n^{(l)} \times 1}
+   }
+   {\partial
+      \begin{bmatrix}
+         w^{(l)}_{11} &w^{(l)}_{12} &\cdots &w^{(l)}_{1, n^{(l-1)}} \\
+         w^{(l)}_{21} &w^{(l)}_{22} &\cdots &w^{(l)}_{2, n^{(l-1)}} \\
+         \cdots &\cdots &\ddots &\vdots \\
+         w^{(l)}_{n^{(l)}, 1} &w^{(l)}_{n^{(l)}, 2} &\cdots &w^{(l)}_{n^{(l)}, n^{(l-1)}}
+      \end{bmatrix}_{n^{(l)} \times n^{(l-1)}}
+   }
+   \\ \\
+   &= \begin{bmatrix}
+      \frac{\partial z^{{(l)}}_1}{\partial w^{(l)}_{11}}
+      &\frac{\partial z^{{(l)}}_1}{\partial w^{(l)}_{12}}
+      &\cdots
+      &\frac{\partial z^{{(l)}}_1}{\partial w^{(l)}_{1, n^{(l-1)}}} \\
+      \frac{\partial z^{{(l)}}_2}{\partial w^{(l)}_{11}}
+      &\frac{\partial z^{{(l)}}_2}{\partial w^{(l)}_{12}}
+      &\cdots
+      &\frac{\partial z^{{(l)}}_2}{\partial w^{(l)}_{1, n^{(l-1)}}} \\
+      \vdots &\vdots &\ddots &\vdots \\
+      \frac{\partial z^{{(l)}}_{n^{(l)}}}{\partial w^{(l)}_{11}}
+      &\frac{\partial z^{{(l)}}_{n^{(l)}}}{\partial w^{(l)}_{12}}
+      &\cdots
+      &\frac{\partial z^{{(l)}}_{n^{(l)}}}{\partial w^{(l)}_{1, n^{(l-1)}}}
+   \end{bmatrix}_{n^{(l)} \times n^{(l-1)}}
+   \\ \\
+   &= \begin{bmatrix}
+      a^{(l)}_{1} & a^{(l)}_{2} &\cdots &a^{(l)}_{n^{(l-1)}} \\
+      a^{(l)}_{1} & a^{(l)}_{2} &\cdots &a^{(l)}_{n^{(l-1)}} \\
+      \vdots &\vdots &\ddots &\vdots \\
+      a^{(l)}_{1} & a^{(l)}_{2} &\cdots &a^{(l)}_{n^{(l-1)}}
+   \end{bmatrix}_{n^{(l)} \times n^{(l-1)}}
+   \\ \\
+   &= \begin{bmatrix}
+      a^{(l)}_{1} & a^{(l)}_{2} &\cdots &a^{(l)}_{n^{(l-1)}}
+   \end{bmatrix}_{1 \times n^{(l-1)}} \\
+   &\text{(Downcasted with no loss in information)}
+   \\ \\
+   &= \left( A^{(l-1)} \right)^T
+\end{aligned}
+$$
+
+Yes, we have not consider the full Jacobian Matrix here.
+
+Now we have,
+$$
+\begin{aligned}
+   \frac{\partial L}{\partial W^{(l)}}
+   &= \left( \color{blue} \frac{\partial Z^{(l+1)}}{\partial A^{(l)}} \color{black} \right)^T \cdot
+   \color{orange} \frac{\partial L}{\partial Z^{(l+1)}}
+   \color{black} \odot 
+   \text{diag} \left( \color{green} \frac{\partial A^{(l)}}{\partial Z^{(l)}}
+   \color{black} \right) \cdot
+   \color{red} \frac{\partial Z^{(l)}}{\partial W^{(l)}} \\
+   &= \left( \color{blue} W^{(l+1)} \color{black} \right)^T \cdot
+   \color{orange} \frac{\partial L}{\partial Z^{(l+1)}}
+   \color{black} \odot 
+   \text{diag} \left( \color{green} \frac{\partial A^{(l)}}{\partial Z^{(l)}}
+   \color{black} \right) \cdot
+   \color{red} \left( A^{(l-1)} \right)^T \\
+   &= \color{magenta} \frac{\partial L}{\partial Z^{(l)}} \color{black} \cdot \color{red} \left( A^{(l-1)} \right)^T
+\end{aligned}
+$$
+
+Similiary,
+$$
+\begin{aligned}
+   \frac{\partial L}{\partial B^{(l)}}
+   &= \color{red} \frac{\partial Z^{(l)}}{\partial B^{(l)}} \color{black} \cdot
+   \color{magenta} \frac{\partial L}{\partial Z^{(l)}} \\
+    &= \color{red} I \color{black} \cdot
+   \color{magenta} \frac{\partial L}{\partial Z^{(l)}} \\
+   &= \color{magenta} \frac{\partial L}{\partial Z^{(l)}}
+\end{aligned}
+$$
+
 
 #### Output Layer
 
-$$
-\frac{\partial L}{\partial z^{(4)}} = \hat{Y} - Y = -0.467
-$$
-
-
-$$
-\frac{\partial Z^{(4)}}{\partial W^{(4)}} = \begin{bmatrix}
-   \frac{\partial z^{(4)}}{\partial w_{ij}^{(4)}}
-\end{bmatrix}_{1 \times 2} = \begin{bmatrix}
-   a_j^{(3)}
-\end{bmatrix}_{1 \times 2} = \begin{bmatrix}
-   0.154 &0.154
-\end{bmatrix}
-$$
-
-$$
-\frac{\partial Z^{(4)}}{\partial B^{(4)}} = \begin{bmatrix}
-   \frac{\partial z^{(4)}}{\partial b_{i}^{(4)}}
-\end{bmatrix}_{1 \times 1} = \begin{bmatrix}
-   1
-\end{bmatrix}_{1 \times 1} = \begin{bmatrix}
-   1
-\end{bmatrix}
-$$
-
-Hence,
-$$
-\begin{aligned}
-      \frac{\partial L}{\partial W^{(4)}} &= \begin{bmatrix}
-      \frac{\partial z^{(4)}}{\partial w_{ij}^{(4)}} \cdot \frac{\partial L}{\partial z^{(4)}} 
-   \end{bmatrix}_{1 \times 2} = \frac{\partial L}{\partial z^{(4)}} \cdot \begin{bmatrix}
-      \frac{\partial z^{(4)}}{\partial w_{ij}^{(4)}}
-   \end{bmatrix}_{1 \times 2}\\ &= -0.467 \cdot \begin{bmatrix}
-      0.154 &0.154
-   \end{bmatrix}\\ &\approx \begin{bmatrix}
-      -0.072 &-0.072
-   \end{bmatrix} \\ \\
-   \frac{\partial L}{\partial B^{(4)}} &= \begin{bmatrix}
-      \frac{\partial z^{(4)}}{\partial b_i^{(4)}} \cdot \frac{\partial L}{\partial z^{(4)}}
-   \end{bmatrix}_{1 \times 1} = \frac{\partial L}{\partial z^{(4)}} \cdot \begin{bmatrix}
-      \frac{\partial z^{(4)}}{\partial b_i^{(4)}}
-   \end{bmatrix}_{1 \times 1} \\
-   &=-0.467 \cdot \begin{bmatrix}
-   1
-\end{bmatrix} \\ &= \begin{bmatrix}
-   -0.467
-\end{bmatrix}
-\end{aligned}
-$$
 
 #### Hidden Layer 3
 
