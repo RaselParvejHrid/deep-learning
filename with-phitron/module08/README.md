@@ -1059,7 +1059,7 @@ B^{(l)}_{\text{new}} = B^{(l)}_{\text{old}} - \frac{\partial L}{\partial B^{(l)}
 
 ```math
 \begin{aligned}
-   W^{(3)}_{\text{new}}
+   W^{(4)}_{\text{new}}
    &= \begin{bmatrix}
       0.1 &0.2
    \end{bmatrix}
@@ -1071,7 +1071,7 @@ B^{(l)}_{\text{new}} = B^{(l)}_{\text{old}} - \frac{\partial L}{\partial B^{(l)}
       0.267076 & 0.411276
    \end{bmatrix} \\
    \\
-   B^{(3)}_{\text{new}}
+   B^{(4)}_{\text{new}}
    &= \begin{bmatrix}
       0.1
    \end{bmatrix}
