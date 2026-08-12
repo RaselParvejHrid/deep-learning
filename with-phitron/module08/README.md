@@ -433,11 +433,11 @@ I belive my mentor wanted me to calculate the gradients of all scalers $w$ and $
 
 But, as a Linear Algebra fan, I couldn't resist **Vectorization**, which is a must for efficient implementation of backpropagation.
 
-In my last commit, I started calculating gradients in vectorized approach, keeping the **'scaler' reality** parallelly in my head. Soon, I noticed 'head' is not enough. So, I started scribbling on paper, of which I am proud. I have decided to keep it as a part of this repo. See [pen-paper.pdf](assets/pen-paper.pdf). I truly learned a lot though this.
+In my last commit, I started calculating gradients in vectorized approach, keeping the **'scaler' reality** parallelly in my head. Soon, I noticed 'head' is not enough. So, I started scribbling on paper, of which I am so proud now. I have decided to keep it as a part of this repo. See [pen-paper.pdf](assets/pen-paper.pdf). I truly learned a lot though this.
 
-I also consulted with Gemini. See my chats with Gemini: [Matrix Multiplication Variants Explained](assets/Chat%20with%20Gemini,%20Matrix%20Multiplication%20Variants%20Explained.pdf) and [Vectorized Backpropagation](assets/Chat%20with%20Gemini,%20Vectorized%20Backpropagation%20for%20Neural%20Network.pdf).
+I also consulted with Gemini. See my chats with Gemini: [Matrix Multiplication Variants Explained](assets/Chat%20with%20Gemini,%20Matrix%20Multiplication%20Variants%20Explained.pdf), [Understanding Jacobian Matrix](assets/Chat%20with%20Gemini,%20Understanding%20the%20Jacobian%20Matrix.pdf) and [Vectorized Backpropagation](assets/Chat%20with%20Gemini,%20Vectorized%20Backpropagation%20for%20Neural%20Network.pdf).
 
-Now, I know what is truly happening as well as I have clarity on vectorized formulas. I am happy. I believe my mentor would be too. I am not lazy. I am differently industrious.
+Now, I know what is truly happening at scalar level as well as I have clarity on vectorized formulas. I am happy. I believe my mentor would be too. I am not lazy. I am differently industrious.
 
 #### Summary of My Exploration
 The following summary is tied to my definition of architecture in [TASK 01. Define the Network Architecture](#task-01-define-the-network-architecture).
@@ -650,7 +650,7 @@ $$
    &= \begin{bmatrix}
       a^{(l)}_{1} & a^{(l)}_{2} &\cdots &a^{(l)}_{n^{(l-1)}}
    \end{bmatrix}_{1 \times n^{(l-1)}} \\
-   &\text{(Downcasted with no loss in information)}
+   &\text{(Downcasted with no loss of information)}
    \\ \\
    &= \left( A^{(l-1)} \right)^T
 \end{aligned}
