@@ -14,7 +14,7 @@
 
 3. What is a **computational graph**? Explain it using the simple expression:
 
-   ```math
+```math
 y = (x^2 + 3x) \times 2
 ```
 
@@ -35,19 +35,19 @@ y = (x^2 + 3x) \times 2
 
 8. Consider:
 
-   ```math
+```math
 x = 2
 ```
 
-   ```math
+```math
 y = x^2
 ```
 
-   ```math
+```math
 z = 3y
 ```
 
-   ```math
+```math
 L = z + 4
 ```
 
@@ -58,13 +58,13 @@ L = z + 4
 
 2. Suppose:
 
-   ```math
+```math
 y = \operatorname{sigmoid}(wx+b)
 ```
 
    and
 
-   ```math
+```math
 L = (y-t)^2
 ```
 
@@ -72,7 +72,7 @@ L = (y-t)^2
 
 3. Why does the combination of **Sigmoid activation + Binary Cross-Entropy loss** simplify the gradient to:
 
-   ```math
+```math
 \frac{\partial L}{\partial z}
    = y_{\text{pred}} - y
 ```
