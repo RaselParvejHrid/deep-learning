@@ -35,7 +35,7 @@ $$
 
 With `requires_grad = True` while creating tensor $x$ (in Line 1), PyTorch start building a computational graph of all operations involving $x$ and the result of operations.
 
-$y$ (Line 2) becomes part of that graph, as it is created with operations involving . When we call `.backward()` on $y$, PyTorch traverse back the graph and applies Chain Rule to Compute Derivatives.
+$y$ (Line 2) becomes part of that graph, as it is created with operations involving $x$. When we call `.backward()` on $y$, PyTorch traverse back the graph and applies Chain Rule to Compute Derivatives.
 
 
 ### Q02
