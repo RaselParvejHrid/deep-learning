@@ -422,13 +422,13 @@ So, **autograd does not use a different rule for differentiation**. It uses the 
 
 The Computational Graph:
 ```math
-\bbox[yellow, 2px]{x}
-\rightarrow \bbox[yellow, 2px]{\Box^2}
-\rightarrow \bbox[yellow, 2px]{y}
-\rightarrow \bbox[yellow, 2px]{3 \times \Box}
-\rightarrow \bbox[yellow, 2px]{z}
-\rightarrow \bbox[yellow, 2px]{\Box + 4}
-\rightarrow \bbox[yellow, 2px]{L}
+x
+\rightarrow \Box^2
+\rightarrow y
+\rightarrow 3 \times \Box
+\rightarrow z
+\rightarrow \Box + 4
+\rightarrow L
 ```
 
 ```math
