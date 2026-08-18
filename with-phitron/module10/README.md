@@ -59,7 +59,7 @@ L = z + 4
 2. Suppose:
 
 ```math
-y = \operatorname{sigmoid}(wx+b)
+y = \sigma(wx+b)
 ```
 
    and
@@ -442,7 +442,7 @@ The Computational Graph:
 \end{aligned}
 ```
 
-### Q09. Suppose $`y = \operatorname{sigmoid}(wx+b)`$,  and $`L = (y-t)^2`$, write the **complete chain-rule expression** for $`\frac{dL}{dw}`$ before simplifying it.
+### Q09. Suppose $`y = \sigma(wx+b)`$,  and $`L = (y-t)^2`$, write the **complete chain-rule expression** for $`\frac{dL}{dw}`$ before simplifying it.
 
 ```math
 \begin{aligned}
@@ -598,7 +598,7 @@ y_{\text{pred}}-y
 With **ReLU**:
 
 ```math
-a = \operatorname{ReLU}(z)
+a = \text{ReLU}(z)
 =
 \max(0,z)
 ```
@@ -618,18 +618,16 @@ So during backpropagation, the gradient behaves differently:
 
 * When $`z>0`$, ReLU passes the incoming gradient backward **unchanged**:
 
-  ```math
+```math
 \frac{\partial L}{\partial z}
-  =
-  \frac{\partial L}{\partial a}
+=
+\frac{\partial L}{\partial a}
 ```
 
 * When $`z<0`$, ReLU blocks the gradient:
 
-  ```math
-\frac{\partial L}{\partial z}
-  =
-  0
+```math
+\frac{\partial L}{\partial z} = 0
 ```
 
 Conceptually:
